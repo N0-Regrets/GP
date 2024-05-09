@@ -1,0 +1,13 @@
+<table>
+  <div *ngFor="let announcement of announcements">
+    <tr>
+      <td rowspan="1">{{ "Subject" }}</td>
+      <td id="ann-body" class="bot-side" rowspan="2" colspan="3">{{ announcement.body }}</td>
+    </tr>
+    <tr>
+      <td class="bot-side">{{ announcement.date.toDateString() }}</td>
+    </tr>
+  </div>
+
+</table>
+

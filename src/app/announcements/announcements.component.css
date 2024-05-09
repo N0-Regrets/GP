@@ -1,0 +1,19 @@
+table {
+  width: 100%;
+  border-collapse: collapse;
+  border: 2px solid;
+  border-color: #070147
+
+}
+
+td {
+  width: 200px;
+  text-align: center;
+  border: 2px solid;
+  border-color: #070147;
+  color: #070147;
+}
+
+#ann-body {
+  text-align: left;
+}
