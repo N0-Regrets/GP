@@ -1,0 +1,35 @@
+<body>
+<form class="horizontal-form" (ngSubmit)="onSubmit()">
+  <input type="text" placeholder="Name" required [(ngModel)]="subject.name" name="name">
+  <input type="text" placeholder="Level" required [(ngModel)]="subject.level" name="level">
+  <input type="text" placeholder="Department" required [(ngModel)]="subject.department" name="department">
+  <input type="text" placeholder="Term" required [(ngModel)]="subject.term" name="term">
+  <button type="submit">Add</button>
+</form>
+
+<div class="search-container">
+  <input type="text" id="search-input" placeholder="Search" #search>
+  <button id="search-button">Search</button>
+</div>
+
+
+<table>
+
+  <tbody>
+  <tr *ngFor="let subject of subjects; index as i">
+    <td>{{ subject.name }}</td>
+    <td>{{ subject.level }}</td>
+    <td>{{ subject.department }}</td>
+    <td>{{ subject.term }}</td>
+
+    <td>
+      <button class="table-button"> Update</button>
+      <button class="table-button" (click)="onDelete(i)"> Delete</button>
+    </td>
+  </tr>
+
+  </tbody>
+</table>
+
+
+</body>

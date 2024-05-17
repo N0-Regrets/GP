@@ -1,19 +1,22 @@
 table {
   width: 100%;
   border-collapse: collapse;
-  border: 2px solid;
+  border: 1px solid;
   border-color: #070147
 
 }
 
 td {
-  width: 200px;
+  width: 20%;
   text-align: center;
-  border: 2px solid;
+  border: 1px solid;
   border-color: #070147;
   color: #070147;
 }
 
+#ann-body {
+  width: 2000px;
+}
 #ann-body {
   text-align: left;
 }
