@@ -39,21 +39,12 @@ export class AdminSubjectsComponent implements OnInit {
     this.http.delete('https://graduation-project-c712f-default-rtdb.firebaseio.com/subjects/' + this.keys.at(index) + '.json').subscribe(() => {
       window.location.reload();
     });
-
   }
 
-  // onSearch(searched:string) {
-  //   if (!searched) {
-  //     return;
-  //   }
-  //   this.filteredSubjects = this.subjects.filter(
-  //     subjects => subjects?.name.toLowerCase().includes(searched.toLowerCase())
-  //   );
-  //
-  // }
+
 
   getSubjects() {
-    this.http.get('https://graduation-project-c712f-default-rtdb.firebaseio.com/subjects.json').subscribe(
+    this.http.get('http://ourschool.somee.com/api/Subject/GetAll').subscribe(
       (response: any) => {
         for (let responseKey in response) {
           this.subjects.push(response[responseKey]);
@@ -63,4 +54,6 @@ export class AdminSubjectsComponent implements OnInit {
       }
     );
   }
+
+
 }

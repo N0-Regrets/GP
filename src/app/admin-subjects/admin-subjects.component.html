@@ -1,10 +1,10 @@
 <body>
-<form class="horizontal-form" (ngSubmit)="onSubmit()">
+<form class="horizontal-form" (ngSubmit)="onSubmit()" #subjectForm="ngForm">
   <input type="text" placeholder="Name" required [(ngModel)]="subject.name" name="name">
   <input type="text" placeholder="Level" required [(ngModel)]="subject.level" name="level">
   <input type="text" placeholder="Department" required [(ngModel)]="subject.department" name="department">
   <input type="text" placeholder="Term" required [(ngModel)]="subject.term" name="term">
-  <button type="submit">Add</button>
+  <button type="submit" [disabled]="subjectForm.invalid">Add</button>
 </form>
 
 <div class="search-container">

@@ -1,0 +1,15 @@
+<form class="search-container" (ngSubmit)="search()">
+  <input type="text" id="search-input" placeholder="Search" name="search" [(ngModel)]="searchInput">
+  <button id="search-button">Search</button>
+</form>
+<table>
+  <tbody>
+  <tr *ngFor="let student of filteredStudents">
+    <td>{{ student.name }}</td>
+    <td>{{ student.gender }}</td>
+    <td>{{ student.birthDay }}</td>
+    <td>{{ student.religion }}</td>
+    <td>{{ student.nationality }}</td>
+  </tr>
+  </tbody>
+</table>

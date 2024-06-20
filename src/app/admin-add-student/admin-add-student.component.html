@@ -1,0 +1,63 @@
+<body>
+
+<div class="form-wrapper">
+  <div class="form-container">
+    <h2>Add New Student</h2>
+    <form id="studentForm" (ngSubmit)="onAddStudent()" #studentForm="ngForm">
+      <label>Name:</label>
+      <input type="text" name="name" required [(ngModel)]="student.name">
+
+      <label>Gender:</label>
+      <select name="gender" required [(ngModel)]="student.gender">
+        <option value="" disabled selected></option>
+        <option value="M">Male</option>
+        <option value="F">Female</option>
+      </select>
+
+      <label>Class:</label>
+      <input type="text" name="class" required [(ngModel)]="student.classId">
+
+      <label>Date of Birth:</label>
+      <input type="date" name="date of birth" required [(ngModel)]="student.birthDay">
+
+      <label>Level:</label>
+      <input type="text" name="level" required [(ngModel)]="student.levelId">
+
+      <label>Email:</label>
+      <input type="email" name="email" ngModel required email>
+
+      <label>Department:</label>
+      <input type="text" name="department" required>
+
+      <label>Phone Number:</label>
+      <input type="text" name="phone number" required>
+
+      <label>Religion:</label>
+      <select name="religion" required>
+        <option value="" disabled selected></option>
+        <option value="Muslim"> Muslim</option>
+        <option value="Christian">Christian</option>
+      </select>
+
+      <label>Nationality:</label>
+      <input type="text" name="nationality" required>
+
+      <label>Parent's Name:</label>
+      <input type="text" name="parent's name" required [(ngModel)]="parent.name">
+
+
+      <label>Parent's Phone Number:</label>
+      <input type="text" name="parent's phone number" required [(ngModel)]="parent.phoneNumber">
+
+      <label>Parent's Address:</label>
+      <input type="text" name="parent's address" required [(ngModel)]="parent.address">
+
+
+      <button type="submit" [disabled]="studentForm.invalid">Add Student</button>
+    </form>
+  </div>
+</div>
+</body>
+
+
+
