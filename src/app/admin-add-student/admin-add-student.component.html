@@ -23,24 +23,23 @@
       <label>Level:</label>
       <input type="text" name="level" required [(ngModel)]="student.levelId">
 
-      <label>Email:</label>
-      <input type="email" name="email" ngModel required email>
+
 
       <label>Department:</label>
-      <input type="text" name="department" required>
+      <input type="text" name="department" required [(ngModel)]="student.departmentId">
 
       <label>Phone Number:</label>
-      <input type="text" name="phone number" required>
+      <input type="text" name="phone number" required [(ngModel)]="student.phoneNumber">
 
       <label>Religion:</label>
-      <select name="religion" required>
+      <select name="religion" required [(ngModel)]="student.religion">
         <option value="" disabled selected></option>
         <option value="Muslim"> Muslim</option>
         <option value="Christian">Christian</option>
       </select>
 
       <label>Nationality:</label>
-      <input type="text" name="nationality" required>
+      <input type="text" name="nationality" required [(ngModel)]="student.nationality">
 
       <label>Parent's Name:</label>
       <input type="text" name="parent's name" required [(ngModel)]="parent.name">

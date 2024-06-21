@@ -3,6 +3,12 @@ import {FormsModule} from '@angular/forms';
 import {Subject} from './subject.model';
 import {HttpClient} from '@angular/common/http';
 import {NgForOf} from "@angular/common";
+import {SchoolDataService} from "../services/school-data.service";
+import {searchService} from "../services/search.service";
+import {LevelModel} from "../models/level.model";
+import {TermModel} from "../models/term.model";
+import {DepartmentModel} from "../models/department.model";
+import {SubjectRecordModel} from "../models/subject-record.model";
 
 @Component({
   selector: 'app-admin-subjects',
@@ -16,18 +22,24 @@ import {NgForOf} from "@angular/common";
 })
 export class AdminSubjectsComponent implements OnInit {
 
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient, private schoolDataService: SchoolDataService) {
   }
 
   ngOnInit() {
     this.getSubjects();
+
   }
 
   subject: Subject = new Subject("", "", "", "");
 
-  subjects: Subject[] = [];
-  filteredSubjects: Subject[] = [];
+  subjectsRecords: SubjectRecordModel[] = [];
+  filteredSubjectRecords: SubjectRecordModel[] = [];
   keys: string[] = [];
+
+  levels: LevelModel[] = this.schoolDataService.getLevels();
+  terms: TermModel[] = this.schoolDataService.getTerms();
+  departments: DepartmentModel[] = this.schoolDataService.getDepartments();
+
 
   onSubmit() {
     this.http.post('https://graduation-project-c712f-default-rtdb.firebaseio.com/subjects.json', this.subject).subscribe(() => {
@@ -42,17 +54,16 @@ export class AdminSubjectsComponent implements OnInit {
   }
 
 
-
   getSubjects() {
-    this.http.get('http://ourschool.somee.com/api/Subject/GetAll').subscribe(
+    this.http.get('http://ourschool.somee.com//api/SubjectRecord').subscribe(
       (response: any) => {
         for (let responseKey in response) {
-          this.subjects.push(response[responseKey]);
-
+          this.subjectsRecords.push(response[responseKey]);
           this.keys.push(responseKey);
         }
       }
     );
+    console.log(this.subjectsRecords)
   }
 
 

@@ -1,14 +1,31 @@
 <body>
 <form class="horizontal-form" (ngSubmit)="onSubmit()" #subjectForm="ngForm">
   <input type="text" placeholder="Name" required [(ngModel)]="subject.name" name="name">
-  <input type="text" placeholder="Level" required [(ngModel)]="subject.level" name="level">
-  <input type="text" placeholder="Department" required [(ngModel)]="subject.department" name="department">
-  <input type="text" placeholder="Term" required [(ngModel)]="subject.term" name="term">
+
+  <select required name="level">
+    <option value="" disabled selected>Level</option>
+    <option *ngFor="let level of levels" [value]=level.id>
+      {{ level.name }}
+    </option>
+  </select>
+  <select required name="department">
+    <option value="" disabled selected>Department</option>
+    <option *ngFor="let department of departments" [value]=department.id>
+      {{ department.name }}
+    </option>
+  </select>
+  <select required name="term">
+    <option value="" disabled selected>Term</option>
+    <option *ngFor="let term of terms" [value]=term.id>
+      {{ term.name }}
+    </option>
+  </select>
+
   <button type="submit" [disabled]="subjectForm.invalid">Add</button>
 </form>
 
 <div class="search-container">
-  <input type="text" id="search-input" placeholder="Search" #search>
+  <input type="text" id="search-input" placeholder="Search">
   <button id="search-button">Search</button>
 </div>
 
@@ -16,20 +33,18 @@
 <table>
 
   <tbody>
-  <tr *ngFor="let subject of subjects; index as i">
-    <td>{{ subject.name }}</td>
-    <td>{{ subject.level }}</td>
-    <td>{{ subject.department }}</td>
-    <td>{{ subject.term }}</td>
+  <tr *ngFor="let subject of subjectsRecords; index as i">
+    <td>{{ "subject.name" }}</td>
+    <td>{{ subject.level.name }}</td>
+    <td>{{ subject.department.name }}</td>
+    <td>{{ subject.term.name }}</td>
 
     <td>
-      <button class="table-button"> Update</button>
+      <!--      <button class="table-button"> Update</button>-->
       <button class="table-button" (click)="onDelete(i)"> Delete</button>
     </td>
   </tr>
 
   </tbody>
 </table>
-
-
 </body>

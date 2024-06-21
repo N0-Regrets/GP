@@ -23,7 +23,7 @@ export class AdminAddStudentComponent {
 
   onAddStudent() {
     console.log(this.student);
-    this.http.post('http://ourschool.somee.com/api/AddStudent', this.student).subscribe(() => {
+    this.http.post('http://ourschool.somee.com/api/Student/AddStudent', this.student).subscribe(() => {
     });
 
     // this.http.post('http://ourschool.somee.com/api/AddParent', this.parent).subscribe(() => {

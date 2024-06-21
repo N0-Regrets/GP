@@ -5,7 +5,7 @@ import {HttpClient} from "@angular/common/http";
 import {BrowserModule} from "@angular/platform-browser";
 
 import {NgForOf} from "@angular/common";
-import {searchService} from "../search.service";
+import {searchService} from "../services/search.service";
 import {FormsModule} from "@angular/forms";
 
 @Component({
@@ -35,7 +35,7 @@ export class AdminStudentsComponent implements OnInit {
 
 
   getStudents() {
-    this.http.get('http://ourschool.somee.com/api/GetStudents').subscribe(
+    this.http.get('http://ourschool.somee.com/api/Student/GetStudents').subscribe(
       (response: any) => {
         for (let responseKey in response) {
           this.students.push(response[responseKey]);
