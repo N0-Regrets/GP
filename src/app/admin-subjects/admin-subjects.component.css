@@ -9,7 +9,7 @@ body {
 
 }
 
-input, select {
+input, select, label {
   padding: 8px;
   width: 200px;
   border: 1px solid #ccc;
@@ -81,3 +81,12 @@ th, td {
   background-color: #bebebe;
 
 }
+
+input[type="file"] {
+  display: none;
+}
+
+.picture-upload {
+  cursor: pointer;
+}
+

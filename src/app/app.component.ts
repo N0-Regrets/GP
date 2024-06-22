@@ -11,6 +11,7 @@ import {AdminNavigationBarComponent} from "./admin-navigation-bar/admin-navigati
 import {AdminStudentsComponent} from "./admin-students/admin-students.component";
 import {AdminAddStudentComponent} from "./admin-add-student/admin-add-student.component";
 import {AdminTeachersComponent} from "./admin-teachers/admin-teachers.component";
+import {AdminGradesComponent} from "./admin-grades/admin-grades.component";
 
 @Component({
   selector: 'app-root',
@@ -19,7 +20,7 @@ import {AdminTeachersComponent} from "./admin-teachers/admin-teachers.component"
   styleUrl: './app.component.css',
   host: {ngSkipHydration: 'true'},
   imports: [CommonModule, RouterOutlet, NavigationBarComponent,
-    AnnouncementsComponent, SubjectsComponent, AdminSubjectsComponent, AdminSubjectsComponent, AdminNavigationBarComponent, AdminStudentsComponent, AdminAddStudentComponent, AdminTeachersComponent]
+    AnnouncementsComponent, SubjectsComponent, AdminSubjectsComponent, AdminSubjectsComponent, AdminNavigationBarComponent, AdminStudentsComponent, AdminAddStudentComponent, AdminTeachersComponent, AdminGradesComponent]
 })
 export class AppComponent {
   title = 'GP';

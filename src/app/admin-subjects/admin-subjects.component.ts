@@ -9,13 +9,16 @@ import {LevelModel} from "../models/level.model";
 import {TermModel} from "../models/term.model";
 import {DepartmentModel} from "../models/department.model";
 import {SubjectRecordModel} from "../models/subject-record.model";
+import {AdminNavigationBarComponent} from "../admin-navigation-bar/admin-navigation-bar.component";
+import {SubjectModel} from "../models/subject.model";
 
 @Component({
   selector: 'app-admin-subjects',
   standalone: true,
   imports: [
     FormsModule,
-    NgForOf
+    NgForOf,
+    AdminNavigationBarComponent
   ],
   templateUrl: './admin-subjects.component.html',
   styleUrl: './admin-subjects.component.css'
@@ -30,21 +33,21 @@ export class AdminSubjectsComponent implements OnInit {
 
   }
 
-  subject: Subject = new Subject("", "", "", "");
+  subjectToBeAdded: SubjectModel = new SubjectModel();
+  subjectRecordToBrAdded: SubjectRecordModel = new SubjectRecordModel();
 
   subjectsRecords: SubjectRecordModel[] = [];
   filteredSubjectRecords: SubjectRecordModel[] = [];
   keys: string[] = [];
-
-  levels: LevelModel[] = this.schoolDataService.getLevels();
   terms: TermModel[] = this.schoolDataService.getTerms();
+  levels: LevelModel[] = this.schoolDataService.getLevels();
   departments: DepartmentModel[] = this.schoolDataService.getDepartments();
 
 
-  onSubmit() {
-    this.http.post('https://graduation-project-c712f-default-rtdb.firebaseio.com/subjects.json', this.subject).subscribe(() => {
-      window.location.reload();
+  onAdd() {
+    this.http.post('http://ourschool.somee.com/api/Subject/Add', this.subjectToBeAdded).subscribe(() => {
     });
+
   }
 
   onDelete(index: number) {
@@ -63,7 +66,6 @@ export class AdminSubjectsComponent implements OnInit {
         }
       }
     );
-    console.log(this.subjectsRecords)
   }
 
 

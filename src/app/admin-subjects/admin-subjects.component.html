@@ -1,8 +1,9 @@
+<app-admin-navigation-bar></app-admin-navigation-bar>
 <body>
-<form class="horizontal-form" (ngSubmit)="onSubmit()" #subjectForm="ngForm">
-  <input type="text" placeholder="Name" required [(ngModel)]="subject.name" name="name">
+<form class="horizontal-form" (ngSubmit)="onAdd()" #subjectForm="ngForm">
+  <input type="text" placeholder="Name" required [(ngModel)]="subjectToBeAdded.name" name="name">
 
-  <select required name="level">
+  <select required name="level" [(ngModel)]="subjectToBeAdded.name">
     <option value="" disabled selected>Level</option>
     <option *ngFor="let level of levels" [value]=level.id>
       {{ level.name }}
@@ -20,6 +21,8 @@
       {{ term.name }}
     </option>
   </select>
+  <!--  <label for="picture-upload" class="picture-upload">Upload a Picture</label>-->
+  <!--  <input id="picture-upload" type="file"/>-->
 
   <button type="submit" [disabled]="subjectForm.invalid">Add</button>
 </form>

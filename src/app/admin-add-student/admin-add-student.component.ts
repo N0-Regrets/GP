@@ -3,12 +3,14 @@ import {FormGroup, FormsModule} from "@angular/forms";
 import {StudentModel} from "../models/student.model";
 import {ParentModel} from "../models/parent.model";
 import {HttpClient} from "@angular/common/http";
+import {AdminNavigationBarComponent} from "../admin-navigation-bar/admin-navigation-bar.component";
 
 @Component({
   selector: 'app-admin-add-student',
   standalone: true,
   imports: [
-    FormsModule
+    FormsModule,
+    AdminNavigationBarComponent
   ],
   templateUrl: './admin-add-student.component.html',
   styleUrl: './admin-add-student.component.css'

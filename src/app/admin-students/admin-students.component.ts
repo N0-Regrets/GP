@@ -7,11 +7,12 @@ import {BrowserModule} from "@angular/platform-browser";
 import {NgForOf} from "@angular/common";
 import {searchService} from "../services/search.service";
 import {FormsModule} from "@angular/forms";
+import {AdminNavigationBarComponent} from "../admin-navigation-bar/admin-navigation-bar.component";
 
 @Component({
   selector: 'app-admin-students',
   standalone: true,
-  imports: [NgForOf, FormsModule],
+  imports: [NgForOf, FormsModule, AdminNavigationBarComponent],
   templateUrl: './admin-students.component.html',
   styleUrl: './admin-students.component.css'
 })
@@ -50,6 +51,12 @@ export class AdminStudentsComponent implements OnInit {
     this.filteredStudents = this.studentSearchService.searchStudents(
       this.students, this.searchInput, "", "" +
       "");
+  }
+
+  onDelete(id: any) {
+    this.http.delete('http://ourschool.somee.com/api/Student/DeleteStudent/' + id).subscribe(() => {
+      window.location.reload();
+    });
   }
 
 }

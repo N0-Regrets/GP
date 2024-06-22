@@ -1,18 +1,19 @@
-import {AfterViewInit, Component, OnInit} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {FormsModule} from "@angular/forms";
 import {HttpClient} from "@angular/common/http";
 import {searchService} from "../services/search.service";
 import {TeacherModel} from "../models/teacher.model";
 import {NgFor} from "@angular/common";
-import {DepartmentModel} from "../models/department.model";
+
 import {SchoolDataService} from "../services/school-data.service";
 import {SubjectModel} from "../models/subject.model";
+import {AdminNavigationBarComponent} from "../admin-navigation-bar/admin-navigation-bar.component";
 
 @Component({
   selector: 'app-admin-teachers',
   standalone: true,
   imports: [
-    FormsModule, NgFor
+    FormsModule, NgFor, AdminNavigationBarComponent
   ],
   templateUrl: './admin-teachers.component.html',
   styleUrl: './admin-teachers.component.css'
@@ -59,5 +60,11 @@ export class AdminTeachersComponent implements OnInit {
     this.filteredTeachers = this.searchService.searchStudents(
       this.teachers, this.searchInput, "", "" +
       "");
+  }
+
+  onDelete(id: any) {
+    this.http.delete('http://ourschool.somee.com/api/Teacher/Delete/' + id).subscribe(() => {
+      window.location.reload();
+    });
   }
 }
