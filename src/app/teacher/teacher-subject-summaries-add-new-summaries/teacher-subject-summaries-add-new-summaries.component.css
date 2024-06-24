@@ -1,0 +1,81 @@
+body {
+  font-family: sans-serif;
+}
+
+.form-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.form-container {
+  margin-top: 5%;
+  padding: 20px 100px 20px 100px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  width: 400px;
+  text-align: center;
+}
+
+h1 {
+  color: #070147;
+  font-weight: lighter;
+  text-decoration-line: underline;
+  text-decoration-thickness: 2px;
+  text-decoration-style: solid;
+  text-decoration-color: #070147;
+  transform: translateY(-10px);
+  margin-bottom: 50px;
+}
+
+
+.container {
+  transform: translateX(-50px);
+}
+
+.upload input {
+  margin-left: 40px;
+}
+
+label {
+  font-size: 30px;
+  color: #070147;
+}
+
+input {
+  font-size: 20px;
+  height: 40px;
+  outline: none;
+  border-radius: 5px;
+  border-width: 1px;
+  border-color: #070147;
+  margin-left: 20px;
+  margin-bottom: 50px;
+}
+
+.button {
+  display: flex;
+  margin-top: 40px;
+  margin-left: 200px;
+}
+
+.button input {
+  width: 100px;
+  height: 35px;
+  margin-bottom: 20px;
+  font-size: 20px;
+  border-radius: 5px;
+  border-width: 1px;
+  border-color: #070147;
+  cursor: pointer;
+}
+
+.upload-button {
+  color: white;
+  background-color: #070147;
+}
+
+.cancel-button {
+  color: #070147;
+  background-color: white;
+}
