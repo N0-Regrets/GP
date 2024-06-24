@@ -1,0 +1,86 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.navigation-bar {
+  background-color: white;
+  border-bottom: 2px solid #070147;
+}
+
+.navigation-container {
+  width: 1200px;
+  height: 70px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+}
+
+.top-left {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  display: flex;
+  flex-direction: row;
+}
+
+.logo {
+  position: fixed;
+  margin-left: 20px;
+}
+
+.title {
+  position: fixed;
+  margin-top: 20px;
+  margin-left: 100px;
+  color: #070147;
+}
+
+.navigation-menu {
+  position: fixed;
+  margin-left: 500px;
+  list-style-type: none;
+  text-align: center;
+  display: inline-block;
+  vertical-align: top;
+}
+
+.navigation-bar li {
+  list-style-type: none;
+  padding: 0;
+  height: 24px;
+  margin-top: 4px;
+  margin-bottom: 4px;
+  margin-left: 10px;
+  display: inline;
+}
+
+.navigation-bar li a {
+  color: #070147;
+  font-size: 20px;
+  text-decoration: none;
+  line-height: 70px;
+  padding: 5px 15px;
+}
+
+.top-right-icons {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  display: flex;
+  flex-direction: row;
+}
+.icon {
+  margin-left: 20px;
+}
+
+li a:hover:not(.active) {
+  color: white;
+  background-color: #070147;
+}
+
+.active {
+  color: white;
+  background-color: #070147;
+}
