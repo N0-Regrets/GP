@@ -1,0 +1,38 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+
+}
+
+.profile-container {
+  display: flex;
+  max-width: 2000px;
+  margin: 20px auto;
+}
+
+.profile-column {
+  flex: 1;
+  margin-right: 50px;
+}
+
+label {
+  font-size: xx-large;
+  font-weight: bold;
+  display: block;
+  margin-bottom: 15px;
+}
+
+.display-box {
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 10px;
+  background-color: #f9f9f9;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+}
+
+.display-box-content {
+  font-size: 30px;
+  margin: 0;
+}
