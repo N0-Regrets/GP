@@ -1,0 +1,125 @@
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: sans-serif;
+}
+
+.container {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.selector {
+  margin-bottom: 50px;
+  display: inline-block;
+  flex-direction: column;
+  align-items: center;
+}
+
+.selector label {
+  color: #070147;
+  font-size: 30px;
+  margin-right: 10px;
+}
+
+.selector select {
+  color: #070147;
+  width: 200px;
+  height: 40px;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.row {
+  display: flex;
+  justify-content: center;
+}
+
+.column {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px;
+  box-sizing: border-box;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.column:hover {
+  transform: translateX(-50px);
+}
+
+.image-container {
+  position: relative;
+}
+
+.image {
+  width: 400px;
+  height: auto;
+  border-radius: 15px 15px 0 0;
+  display: block;
+  margin: 0 auto;
+  transition: transform 0.3s ease;
+}
+
+h1 {
+  width: 380px;
+  color: white;
+  background-color: #070147;
+  border-radius: 0 0 15px 15px;
+  padding: 10px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.items {
+  position: absolute;
+  top: 10px;
+  left: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  padding: 10px;
+  border-radius: 5px;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  transform: translateX(50px);
+  opacity: 0;
+}
+
+.column:hover .items {
+  transform: translateX(0);
+  opacity: 1;
+}
+
+.item {
+  font-size: 16px;
+  padding: 8px;
+  margin-bottom: 5px;
+  cursor: pointer;
+  transition: transform 0.2s ease, font-size 0.2s ease;
+}
+
+.item:hover {
+  transform: scale(1.1);
+  font-size: 18px;
+}
+
+a {
+  text-decoration: none;
+  color: #070147;
+}
+
+a:hover {
+  text-decoration: none;
+  color: #070147;
+}
