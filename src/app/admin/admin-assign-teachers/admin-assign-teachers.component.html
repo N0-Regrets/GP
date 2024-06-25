@@ -1,0 +1,17 @@
+<app-admin-navigation-bar></app-admin-navigation-bar>
+<form class="container" (ngSubmit)="onSave(classForm)" #classForm="ngForm">
+  <div class="horizontal-form">
+    <button class="static-button">{{ "Level: " }}{{ classInfo.level.name }}</button>
+    <button class="static-button">{{ "Department: " }}{{ classInfo.department.name }}</button>
+    <button class="static-button">{{ "Number: " }}{{ classInfo.number }}</button>
+    <button class="static-button">{{ "Number of Students: " }}{{ classInfo.numOfStudent }}</button>
+  </div>
+  <div class="class-row" *ngFor="let subject of classTeachersData; index as i">
+    <button class="static-button">{{ subject.subject.name }}</button>
+
+    <select name="teacher{{i}}" class="teacher-dropdown" [(ngModel)]="classTeachersData[i].chosenTeacher.id">
+      <option *ngFor="let teacher of classTeachersData[i].teachers" [value]="teacher.id">{{ teacher.name }}</option>
+    </select>
+  </div>
+  <button class="done-button">Save</button>
+</form>

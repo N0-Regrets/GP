@@ -1,0 +1,60 @@
+<app-admin-navigation-bar></app-admin-navigation-bar>
+<body>
+<form class="horizontal-form" (ngSubmit)="onAddSubject()" #subjectForm="ngForm">
+  <input type="text" placeholder="Name" name="name" required [(ngModel)]="subjectToBeAdded.name">
+  <label for="picture-upload" class="picture-upload">Upload a Picture</label>
+  <input id="picture-upload" type="file" name="picture-upload" (change)="onSelectingImage($event)" ngModel/>
+  <button type="submit" [disabled]="subjectForm.invalid">Add Subject</button>
+</form>
+
+
+<form class="horizontal-form" (ngSubmit)="onConfigureSubject(subjectRecordForm)" #subjectRecordForm="ngForm">
+
+  <select required name="subject" ngModel>
+    <option value="" disabled selected>subject</option>
+    <option *ngFor="let subject of subjects" [value]=subject.id>
+      {{ subject.name }}
+    </option>
+  </select>
+
+  <select required name="level" ngModel>
+    <option value="" disabled selected>Level</option>
+    <option *ngFor="let level of levels" [value]=level.id>
+      {{ level.name }}
+    </option>
+  </select>
+  <select required name="department" ngModel>
+    <option value="" disabled selected>Department</option>
+    <option *ngFor="let department of departments" [value]=department.id>
+      {{ department.name }}
+    </option>
+  </select>
+  <select required name="term" ngModel>
+    <option value="" disabled selected>Term</option>
+    <option *ngFor="let term of terms" [value]=term.id>
+      {{ term.name }}
+    </option>
+  </select>
+
+
+  <button type="submit" [disabled]="subjectRecordForm.invalid">Configure Subject</button>
+</form>
+
+<table>
+
+  <tbody>
+  <tr *ngFor="let subject of subjectsRecords; index as i">
+    <td>{{ subject.subject.name }}</td>
+    <td>{{ subject.level.name }}</td>
+    <td>{{ subject.department.name }}</td>
+    <td>{{ subject.term.name }}</td>
+
+    <td>
+      <!--      <button class="table-button"> Update</button>-->
+      <button class="table-button" (click)="onDelete(i)"> Delete</button>
+    </td>
+  </tr>
+
+  </tbody>
+</table>
+</body>

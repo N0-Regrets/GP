@@ -4,14 +4,21 @@ import { RouterOutlet } from '@angular/router';
 import {NavigationBarComponent} from "./navigation-bar/navigation-bar.component";
 import {AnnouncementsComponent} from "./announcements/announcements.component";
 import {SubjectsComponent} from "./subjects/subjects.component";
-import {HttpClientModule} from '@angular/common/http';
-import {importProvidersFrom} from '@angular/core';
-import {AdminSubjectsComponent} from "./admin-subjects/admin-subjects.component";
-import {AdminNavigationBarComponent} from "./admin-navigation-bar/admin-navigation-bar.component";
-import {AdminStudentsComponent} from "./admin-students/admin-students.component";
-import {AdminAddStudentComponent} from "./admin-add-student/admin-add-student.component";
-import {AdminTeachersComponent} from "./admin-teachers/admin-teachers.component";
-import {AdminGradesComponent} from "./admin-grades/admin-grades.component";
+import {AdminSubjectsComponent} from "./admin/admin-subjects/admin-subjects.component";
+import {AdminNavigationBarComponent} from "./admin/admin-navigation-bar/admin-navigation-bar.component";
+import {AdminStudentsComponent} from "./admin/admin-students/admin-students.component";
+import {AdminAddStudentComponent} from "./admin/admin-add-student/admin-add-student.component";
+import {AdminTeachersComponent} from "./admin/admin-teachers/admin-teachers.component";
+import {AdminGradesComponent} from "./admin/admin-grades/admin-grades.component";
+import {ChatbotComponent} from "./teacher/chatbot/chatbot.component";
+import {TeacherProfileComponent} from "./teacher/teacher-profile/teacher-profile.component";
+import {TeacherSubjectComponent} from "./teacher/teacher-subject/teacher-subject.component";
+import {
+  TeacherSubjectSummariesComponent
+} from "./teacher/teacher-subject-summaries/teacher-subject-summaries.component";
+import {
+  TeacherSubjectSummariesAddNewSummariesComponent
+} from "./teacher/teacher-subject-summaries-add-new-summaries/teacher-subject-summaries-add-new-summaries.component";
 
 @Component({
   selector: 'app-root',
@@ -20,7 +27,7 @@ import {AdminGradesComponent} from "./admin-grades/admin-grades.component";
   styleUrl: './app.component.css',
   host: {ngSkipHydration: 'true'},
   imports: [CommonModule, RouterOutlet, NavigationBarComponent,
-    AnnouncementsComponent, SubjectsComponent, AdminSubjectsComponent, AdminSubjectsComponent, AdminNavigationBarComponent, AdminStudentsComponent, AdminAddStudentComponent, AdminTeachersComponent, AdminGradesComponent]
+    AnnouncementsComponent, SubjectsComponent, AdminSubjectsComponent, AdminSubjectsComponent, AdminNavigationBarComponent, AdminStudentsComponent, AdminAddStudentComponent, AdminTeachersComponent, AdminGradesComponent, ChatbotComponent, TeacherProfileComponent, TeacherSubjectComponent, TeacherSubjectSummariesComponent, TeacherSubjectSummariesAddNewSummariesComponent]
 })
 export class AppComponent {
   title = 'GP';

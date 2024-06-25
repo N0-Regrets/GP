@@ -1,0 +1,18 @@
+<app-admin-navigation-bar></app-admin-navigation-bar>
+<form class="search-container" (ngSubmit)="search()">
+  <input type="text" id="search-input" placeholder="Search" name="search" [(ngModel)]="searchInput">
+  <button id="search-button">Search</button>
+</form>
+<table>
+  <tbody>
+  <tr *ngFor="let parent of filteredParents">
+    <td>{{ parent.name }}</td>
+    <td>{{ parent.phoneNumber }}</td>
+    <td>{{ parent.address }}</td>
+    <td>
+      <!--      <button class="table-button"> Update</button>-->
+      <button class="table-button" (click)="onDelete(parent.id)"> Delete</button>
+    </td>
+  </tr>
+  </tbody>
+</table>

@@ -2,12 +2,12 @@ import {Component, OnInit} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 
 
-import {BrowserModule} from "@angular/platform-browser";
 
 import {NgForOf} from "@angular/common";
-import {searchService} from "../services/search.service";
+import {SearchService} from "../../services/search.service";
 import {FormsModule} from "@angular/forms";
 import {AdminNavigationBarComponent} from "../admin-navigation-bar/admin-navigation-bar.component";
+import {StudentModel} from "../../models/student.model";
 
 @Component({
   selector: 'app-admin-students',
@@ -18,7 +18,7 @@ import {AdminNavigationBarComponent} from "../admin-navigation-bar/admin-navigat
 })
 export class AdminStudentsComponent implements OnInit {
 
-  constructor(private http: HttpClient, private studentSearchService: searchService) {
+  constructor(private http: HttpClient, private searchService: SearchService) {
   }
 
   ngOnInit() {
@@ -30,27 +30,23 @@ export class AdminStudentsComponent implements OnInit {
   searchInput: string = "";
 
 
-  students: any[] = [];
-  keys: string[] = [];
-  filteredStudents: any[] = [];
+  students: StudentModel[] = [];
+
+  filteredStudents: StudentModel[] = [];
 
 
   getStudents() {
     this.http.get('http://ourschool.somee.com/api/Student/GetStudents').subscribe(
       (response: any) => {
-        for (let responseKey in response) {
-          this.students.push(response[responseKey]);
-          this.keys.push(responseKey);
-        }
+        this.students = response;
       }
     );
     this.filteredStudents = this.students;
   }
 
   search(): void {
-    this.filteredStudents = this.studentSearchService.searchStudents(
-      this.students, this.searchInput, "", "" +
-      "");
+    this.filteredStudents = this.searchService.search(
+      this.students, this.searchInput);
   }
 
   onDelete(id: any) {

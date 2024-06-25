@@ -44,6 +44,16 @@ export class SchoolDataService {
     return terms;
   }
 
+  getClasses(): SubjectModel[] {
+    let classes: SubjectModel[] = [];
+    this.http.get('http://ourschool.somee.com/api/Class/GetAllClasses').subscribe(
+      (response: any) => {
+        classes = response;
+      }
+    );
+    return classes;
+  }
+
   getSubjects(): SubjectModel[] {
     let subjects: SubjectModel[] = [];
     this.http.get('http://ourschool.somee.com/api/Subject/GetAll').subscribe(

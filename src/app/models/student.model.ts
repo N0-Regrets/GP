@@ -12,6 +12,8 @@ export class StudentModel {
   levelId: number | undefined;
   departmentId: number | undefined;
   classId: number | undefined;
+  id: number | undefined;
+
 
   //Default constructor
   constructor() {

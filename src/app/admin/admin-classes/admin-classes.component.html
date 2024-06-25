@@ -1,0 +1,44 @@
+<app-admin-navigation-bar></app-admin-navigation-bar>
+
+<div class="container">
+  <form class="horizontal-form" (ngSubmit)="onAddClass(classForm)" #classForm="ngForm">
+    <select required name="level" ngModel>
+      <option value="" disabled selected>Level</option>
+      <option *ngFor="let level of levels" [value]=level.id>
+        {{ level.name }}
+      </option>
+    </select>
+    <select required name="department" ngModel>
+      <option value="" disabled selected>Department</option>
+      <option *ngFor="let department of departments" [value]=department.id>
+        {{ department.name }}
+      </option>
+    </select>
+    <input type="text" placeholder="Number" name="number" ngModel>
+    <input type="text" placeholder="Number of Students" name="numberOfStudents" ngModel>
+    <button type="submit" [disabled]="classForm.invalid" #submitButton>Add Class</button>
+  </form>
+</div>
+
+
+<form class="search-container" (ngSubmit)="onSearch()">
+  <input type="text" id="search-input" placeholder="Search by class number" name="search" [(ngModel)]="searchInput">
+  <button>Search</button>
+</form>
+
+<table>
+  <tbody>
+  <tr *ngFor="let class of filteredClasses">
+    <td>{{ class.level.name }}</td>
+    <td>{{ class.department.name }}</td>
+    <td>{{ class.number }}</td>
+    <td>{{ class.numOfStudent }}</td>
+
+
+    <td>
+      <button class="table-button" (click)="onAssignTeacher(class.id)">Assign Teacher</button>
+      <button class="table-button" (click)="onDelete(class.id)"> Delete</button>
+    </td>
+  </tr>
+  </tbody>
+</table>

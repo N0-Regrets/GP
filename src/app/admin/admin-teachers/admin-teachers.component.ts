@@ -1,13 +1,13 @@
 import {Component, OnInit} from '@angular/core';
 import {FormsModule} from "@angular/forms";
 import {HttpClient} from "@angular/common/http";
-import {searchService} from "../services/search.service";
-import {TeacherModel} from "../models/teacher.model";
 import {NgFor} from "@angular/common";
-
-import {SchoolDataService} from "../services/school-data.service";
-import {SubjectModel} from "../models/subject.model";
 import {AdminNavigationBarComponent} from "../admin-navigation-bar/admin-navigation-bar.component";
+import {SchoolDataService} from "../../services/school-data.service";
+import {SubjectModel} from "../../models/subject.model";
+import {TeacherModel} from "../../models/teacher.model";
+import {SearchService} from "../../services/search.service";
+
 
 @Component({
   selector: 'app-admin-teachers',
@@ -21,7 +21,7 @@ import {AdminNavigationBarComponent} from "../admin-navigation-bar/admin-navigat
 export class AdminTeachersComponent implements OnInit {
 
 
-  constructor(private http: HttpClient, private searchService: searchService, private schoolDataService: SchoolDataService) {
+  constructor(private http: HttpClient, private searchService: SearchService, private schoolDataService: SchoolDataService) {
   }
 
 
@@ -32,7 +32,6 @@ export class AdminTeachersComponent implements OnInit {
   subjects: SubjectModel[] = this.schoolDataService.getSubjects();
   searchInput: string = "";
   teachers: TeacherModel[] = [];
-  keys: string[] = [];
   filteredTeachers: TeacherModel[] = [];
   teacherToBeAdded: TeacherModel = new TeacherModel();
 
@@ -40,10 +39,7 @@ export class AdminTeachersComponent implements OnInit {
   getTeachers() {
     this.http.get('http://ourschool.somee.com/api/Teacher/GetAll').subscribe(
       (response: any) => {
-        for (let responseKey in response) {
-          this.teachers.push(response[responseKey]);
-          this.keys.push(responseKey);
-        }
+        this.teachers = response;
       }
     );
     this.filteredTeachers = this.teachers;
@@ -57,9 +53,8 @@ export class AdminTeachersComponent implements OnInit {
   }
 
   search(): void {
-    this.filteredTeachers = this.searchService.searchStudents(
-      this.teachers, this.searchInput, "", "" +
-      "");
+    this.filteredTeachers = this.searchService.search(
+      this.teachers, this.searchInput);
   }
 
   onDelete(id: any) {

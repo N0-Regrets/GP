@@ -1,14 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import {TeacherNavigationBarComponent} from "../teacher-navigation-bar/teacher-navigation-bar.component";
 
 @Component({
   selector: 'app-teacher-subject',
   standalone: true,
-  imports: [
-    TeacherNavigationBarComponent
-
-  ],
+  imports: [],
   templateUrl: './teacher-subject.component.html',
   styleUrl: './teacher-subject.component.css'
 })

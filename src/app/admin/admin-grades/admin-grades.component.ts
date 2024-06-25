@@ -1,15 +1,15 @@
 import {Component} from '@angular/core';
-import {LevelModel} from "../models/level.model";
-import {DepartmentModel} from "../models/department.model";
+import {LevelModel} from "../../models/level.model";
+import {DepartmentModel} from "../../models/department.model";
 import {HttpClient} from "@angular/common/http";
-import {SchoolDataService} from "../services/school-data.service";
+import {SchoolDataService} from "../../services/school-data.service";
 import {FormsModule} from "@angular/forms";
 import {NgFor} from "@angular/common";
-import {SubjectModel} from "../models/subject.model";
-import {searchService} from "../services/search.service";
-import {StudentModel} from "../models/student.model";
-import {SubjectRecordModel} from "../models/subject-record.model";
+import {SubjectModel} from "../../models/subject.model";
+import {SearchService} from "../../services/search.service";
+import {StudentModel} from "../../models/student.model";
 import {AdminNavigationBarComponent} from "../admin-navigation-bar/admin-navigation-bar.component";
+
 
 @Component({
   selector: 'app-admin-grades',
@@ -22,8 +22,8 @@ import {AdminNavigationBarComponent} from "../admin-navigation-bar/admin-navigat
 })
 export class AdminGradesComponent {
 
-
-  constructor(private http: HttpClient, private schoolDataService: SchoolDataService, private studentSearchService: searchService) {
+  constructor(private http: HttpClient, private schoolDataService: SchoolDataService,
+              private studentSearchService: SearchService) {
   }
 
   searchInput: string = "";
@@ -33,10 +33,12 @@ export class AdminGradesComponent {
   studentsFinalGrade: any[] = [];
   students: StudentModel[] = [];
   filteredStudents: StudentModel[] = [];
+
   buttonClicked: boolean = false;
 
 
   getTable(form: any) {
+
     this.buttonClicked = true;
     this.filteredStudents = [];
     this.students = [];
@@ -54,9 +56,30 @@ export class AdminGradesComponent {
   }
 
   search(): void {
-    this.filteredStudents = this.studentSearchService.searchStudents(
-      this.students, this.searchInput, "", "" +
-      "");
+    this.filteredStudents = this.studentSearchService.search(
+      this.students, this.searchInput);
   }
+
+  onSave(studentIndex: any) {
+
+    interface Grade {
+      final: number;
+      subjectId: number;
+    }
+
+    let grades: Grade[] = [];
+    for (let i = 0; i < this.studentsFinalGrade[studentIndex].subjectsFinalDegree.length; i++) {
+      let current = this.studentsFinalGrade[studentIndex].subjectsFinalDegree[i];
+      grades.push({final: current.finalDegree, subjectId: current.subject.id})
+    }
+    console.log(grades);
+
+    this.http.put('http://ourschool.somee.com/api/Grades/UpdateFinalDegree/' + this.students[studentIndex].id,
+      grades).subscribe(() => {
+      window.location.reload();
+    });
+
+  }
+
 
 }
