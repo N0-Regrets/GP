@@ -78,26 +78,11 @@ export class AdminSubjectsComponent implements OnInit {
       departmentId: form.value.department,
       levelId: form.value.level,
     };
-    let putOrPost: boolean = false;
-    let id: number | undefined;
-    for (let i = 0; i < this.subjectsRecords.length; i++) {
-      if (record.subjectId == this.subjectsRecords[i].subject.id) {
-        putOrPost = true;
-        id = this.subjectsRecords[i].subLevlDeptTermId;
-        break;
-      }
-    }
-    if (putOrPost) {
-      this.http.put('http://ourschool.somee.com/api/SubjectRecord/Upadate/' + id, record).subscribe(() => {
-        window.location.reload();
-      });
-    } else {
-      this.http.post('http://ourschool.somee.com/api/SubjectRecord/Add', record).subscribe(() => {
-        window.location.reload();
-      });
-    }
 
 
+    this.http.post('http://ourschool.somee.com/api/SubjectRecord/Add', record).subscribe(() => {
+      window.location.reload();
+    });
   }
 
   onDelete(index: number) {

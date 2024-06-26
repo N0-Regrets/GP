@@ -7,8 +7,11 @@ import {AdminGradesComponent} from "./admin/admin-grades/admin-grades.component"
 import {AdminParentsComponent} from "./admin/admin-parents/admin-parents.component";
 import {AdminClassesComponent} from "./admin/admin-classes/admin-classes.component";
 import {AdminAssignTeachersComponent} from "./admin/admin-assign-teachers/admin-assign-teachers.component";
+import {TeacherSubjectsComponent} from "./teacher/teacher-subjects/teacher-subjects.component";
+import {TeacherMaterialsComponent} from './teacher/teacher-materials/teacher-materials.component';
 
 export const routes: Routes = [
+  //Admin
   {path: 'admin/add-student', component: AdminAddStudentComponent, title: "Add Student"},
   {path: 'admin/view-students', component: AdminStudentsComponent, title: "Students Page"},
   {path: 'admin/subjects', component: AdminSubjectsComponent, title: "Subjects Page"},
@@ -17,4 +20,7 @@ export const routes: Routes = [
   {path: 'admin/parents', component: AdminParentsComponent, title: "Parents Page"},
   {path: 'admin/classes', component: AdminClassesComponent, title: "Classes Page"},
   {path: 'admin/assign-teachers/:id', component: AdminAssignTeachersComponent, title: "Assign Teacher"},
+  //Teacher
+  {path: 'teacher/subjects/:teacher-id', component: TeacherSubjectsComponent, title: "Subjects"},
+  {path: 'teacher/materials/:teacher-id/:subject-id', component: TeacherMaterialsComponent, title: "Materials"},
 ];
