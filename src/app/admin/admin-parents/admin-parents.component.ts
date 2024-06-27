@@ -55,8 +55,7 @@ export class AdminParentsComponent implements OnInit {
   }
 
   onRequestMeeting(id: any) {
-    this.http.post('http://ourschool.somee.com/api/RequestMeeting/AddRequestMeeting' + id, {}).subscribe(() => {
-
+    this.http.post('http://ourschool.somee.com/api/RequestMeeting/AddRequestMeeting/' + id, null).subscribe(() => {
     });
 
   }

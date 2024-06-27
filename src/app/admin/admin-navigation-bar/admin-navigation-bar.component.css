@@ -108,8 +108,7 @@ li a:hover:not(.active) {
   background-color: #070147;
 }
 
-li a.active {
-  background-color: #070147;
+.navigation-bar li a.active {
   color: white;
+  background-color: #070147;
 }
-

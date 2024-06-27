@@ -20,6 +20,7 @@ import {
 import {TeacherNavigationBarComponent} from "./teacher/teacher-navigation-bar/teacher-navigation-bar.component";
 import {DisplaySubjectsComponent} from "./display-subjects/display-subjects.component";
 import {TeacherSubjectsComponent} from "./teacher/teacher-subjects/teacher-subjects.component";
+import {TeacherMaterialsListComponent} from "./teacher-materials-list/teacher-materials-list.component";
 
 @Component({
   selector: 'app-root',
@@ -31,7 +32,7 @@ import {TeacherSubjectsComponent} from "./teacher/teacher-subjects/teacher-subje
     AnnouncementsComponent, AdminSubjectsComponent, AdminSubjectsComponent,
     AdminNavigationBarComponent, AdminStudentsComponent, AdminAddStudentComponent, AdminTeachersComponent,
     AdminGradesComponent, ChatbotComponent, TeacherProfileComponent, TeacherSubjectSummariesComponent,
-    TeacherSubjectSummariesAddNewSummariesComponent, TeacherNavigationBarComponent, DisplaySubjectsComponent, TeacherSubjectsComponent]
+    TeacherSubjectSummariesAddNewSummariesComponent, TeacherNavigationBarComponent, DisplaySubjectsComponent, TeacherSubjectsComponent, TeacherMaterialsListComponent]
 })
 export class AppComponent {
   title = 'GP';

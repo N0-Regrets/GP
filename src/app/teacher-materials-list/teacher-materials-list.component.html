@@ -1,0 +1,35 @@
+<app-teacher-navigation-bar></app-teacher-navigation-bar>
+<br>
+<div class="main">
+
+  <div class="container">
+    <div class="content">
+      <header>
+        <h1>File List</h1>
+      </header>
+
+      <div class="select-container">
+        <label>Class: </label>
+        <select required name="class" [(ngModel)]="currentClassId" (change)="onSelectChange()">
+          <option *ngFor="let class of classes" [value]=class.id>
+            Class {{ class.num }}
+          </option>
+        </select>
+      </div>
+
+      <div class="file-list">
+        <div class="file-item">
+          <span class="file-icon">📄</span>
+          <span class="file-name">Document1.pdf</span>
+        </div>
+
+      </div>
+      <button class="upload-button" (click)="onUpload()">Upload File</button>
+      <input type="file" id="fileInput" style="display: none;">
+    </div>
+  </div>
+
+</div>
+
+
+

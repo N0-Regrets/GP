@@ -11,8 +11,9 @@
     <td>{{ parent.address }}</td>
     <td>
       <!--      <button class="table-button"> Update</button>-->
-      <button class="table-button" (click)="onDelete(parent.id)">Delete</button>
       <button class="table-button" (click)="onRequestMeeting(parent.id)">Request Meeting</button>
+      <button class="table-button" (click)="onDelete(parent.id)">Delete</button>
+
     </td>
   </tr>
   </tbody>

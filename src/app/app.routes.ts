@@ -9,6 +9,8 @@ import {AdminClassesComponent} from "./admin/admin-classes/admin-classes.compone
 import {AdminAssignTeachersComponent} from "./admin/admin-assign-teachers/admin-assign-teachers.component";
 import {TeacherSubjectsComponent} from "./teacher/teacher-subjects/teacher-subjects.component";
 import {TeacherMaterialsComponent} from './teacher/teacher-materials/teacher-materials.component';
+import {TeacherMaterialsListComponent} from "./teacher-materials-list/teacher-materials-list.component";
+import {AdminAttendanceComponent} from "./admin/admin-attendance/admin-attendance.component";
 
 export const routes: Routes = [
   //Admin
@@ -20,7 +22,17 @@ export const routes: Routes = [
   {path: 'admin/parents', component: AdminParentsComponent, title: "Parents Page"},
   {path: 'admin/classes', component: AdminClassesComponent, title: "Classes Page"},
   {path: 'admin/assign-teachers/:id', component: AdminAssignTeachersComponent, title: "Assign Teacher"},
+  {path: 'admin/attendance', component: AdminAttendanceComponent, title: "Attendance Page"},
   //Teacher
   {path: 'teacher/subjects/:teacher-id', component: TeacherSubjectsComponent, title: "Subjects"},
-  {path: 'teacher/materials/:teacher-id/:subject-id', component: TeacherMaterialsComponent, title: "Materials"},
+  {
+    path: 'teacher/materials/:teacher-id/:subject-id/:level-id',
+    component: TeacherMaterialsComponent,
+    title: "Materials"
+  },
+  {
+    path: 'teacher/materials/:teacher-id/:subject-id/:level-id/:material-type',
+    component: TeacherMaterialsListComponent,
+    title: "Materials List"
+  },
 ];

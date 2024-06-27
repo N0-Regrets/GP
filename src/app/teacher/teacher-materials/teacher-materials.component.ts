@@ -18,5 +18,6 @@ export class TeacherMaterialsComponent {
 
   teacherId = this.route.snapshot.params["teacher-id"];
   subjectId = this.route.snapshot.params["subject-id"];
+  levelId = this.route.snapshot.params["level-id"];
 
 }

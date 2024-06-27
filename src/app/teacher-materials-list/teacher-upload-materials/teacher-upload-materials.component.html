@@ -1,0 +1,17 @@
+<div class="window">
+  <form>
+    <label>Choose a class:</label>
+
+    <select required name="class" [(ngModel)]="currentClassId">
+      <option *ngFor="let class of classes" [value]=class.id>
+        Class {{ class.num }}
+      </option>
+    </select>
+
+
+    <label for="file-upload">Upload a file:</label>
+    <input type="file" id="file-upload" name="file-upload">
+
+    <button type="submit">Submit</button>
+  </form>
+</div>
