@@ -8,6 +8,7 @@ import {SearchService} from "../../services/search.service";
 import {FormsModule} from "@angular/forms";
 import {AdminNavigationBarComponent} from "../admin-navigation-bar/admin-navigation-bar.component";
 import {StudentModel} from "../../models/student.model";
+import {StudentsService} from "../../services/students.service";
 
 @Component({
   selector: 'app-admin-students',
@@ -16,33 +17,16 @@ import {StudentModel} from "../../models/student.model";
   templateUrl: './admin-students.component.html',
   styleUrl: './admin-students.component.css'
 })
-export class AdminStudentsComponent implements OnInit {
+export class AdminStudentsComponent {
 
-  constructor(private http: HttpClient, private searchService: SearchService) {
+  constructor(private http: HttpClient, private searchService: SearchService,
+              private studentService: StudentsService) {
   }
 
-  ngOnInit() {
-    this.getStudents();
-
-  }
-
-
+  students: StudentModel[] = this.studentService.getStudents();
+  filteredStudents: StudentModel[] = this.students;
   searchInput: string = "";
 
-
-  students: StudentModel[] = [];
-
-  filteredStudents: StudentModel[] = [];
-
-
-  getStudents() {
-    this.http.get('http://ourschool.somee.com/api/Student/GetStudents').subscribe(
-      (response: any) => {
-        this.students = response;
-      }
-    );
-    this.filteredStudents = this.students;
-  }
 
   search(): void {
     this.filteredStudents = this.searchService.search(

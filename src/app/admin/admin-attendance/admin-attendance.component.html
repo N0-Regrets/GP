@@ -1,16 +1,36 @@
 <app-admin-navigation-bar></app-admin-navigation-bar>
+
+<form class="horizontal-form" (ngSubmit)="onSetThreshold(thresholdForm)" #thresholdForm="ngForm">
+  <label></label>
+  <input ngModel required type="text" placeholder="Absence Warning Threshold" name="threshold">
+  <button type="submit" [disabled]="thresholdForm.invalid">Set Threshold</button>
+</form>
+<form class="search-container" (ngSubmit)="search()">
+  <input type="text" id="search-input" placeholder="Search" name="search" [(ngModel)]="searchInput">
+  <button id="search-button">Search</button>
+</form>
 <div class="container">
-  <div class="header">
-    <div class="header-item">Name</div>
-    <div class="header-item">Absent days</div>
-    <div class="header-item">Attendance warning</div>
-  </div>
-  <div class="row">
-    <div class="cell">Ahmed Mohamed</div>
-    <div class="cell"><input type="text"></div>
-    <div class="cell"><input type="checkbox"></div>
-  </div>
-  <div class="button-container">
-    <button>Save</button>
-  </div>
+
+  <table>
+    <thead>
+    <tr>
+      <th>Name</th>
+      <th>Absent Days</th>
+      <th>Absence Warnings</th>
+      <th>Remove One Absence Warning</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let student of filteredStudents;index as i">
+      <td>{{ student.name }}</td>
+      <td>{{ attendanceInfo[i].absentDays }}</td>
+      <td>{{ attendanceInfo[i].absenceWarns }}</td>
+      <td>
+        <button (click)="onRemove(student.id)">Remove</button>
+      </td>
+    </tr>
+
+    </tbody>
+  </table>
+
 </div>

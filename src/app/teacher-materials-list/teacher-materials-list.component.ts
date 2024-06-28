@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Input, OnInit, Output} from '@angular/core';
 import {TeacherNavigationBarComponent} from "../teacher/teacher-navigation-bar/teacher-navigation-bar.component";
 import {AdminNavigationBarComponent} from "../admin/admin-navigation-bar/admin-navigation-bar.component";
 import {MatDialog, MatDialogRef} from '@angular/material/dialog';
@@ -6,7 +6,6 @@ import {HttpClient} from "@angular/common/http";
 import {ActivatedRoute} from "@angular/router";
 import {NgForOf} from "@angular/common";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
-import {ClassModel} from "../models/class.model";
 import {TeacherUploadMaterialsComponent} from "./teacher-upload-materials/teacher-upload-materials.component";
 
 
@@ -31,7 +30,7 @@ export class TeacherMaterialsListComponent implements OnInit {
 
   ngOnInit(): void {
     this.getClasses();
-    this.getFiles();
+    this.getAllFiles();
   }
 
   teacherId = this.route.snapshot.params["teacher-id"];
@@ -40,7 +39,7 @@ export class TeacherMaterialsListComponent implements OnInit {
   materialType = this.route.snapshot.params["material-type"];
   classes: any[] = [];
   files: any[] = [];
-  currentClassId: number = 0;
+  currentClassId: number = -1;
 
   getClasses() {
     this.http.get('http://ourschool.somee.com/api/Teacher/GetTeacherClassesByLevelSubject/'
@@ -51,8 +50,7 @@ export class TeacherMaterialsListComponent implements OnInit {
     );
   }
 
-  getFiles() {
-
+  getAllFiles() {
     this.http.get('http://ourschool.somee.com/api/Material/GetMaterialForTeacher/'
       + this.materialType, {
       params: {
@@ -63,16 +61,47 @@ export class TeacherMaterialsListComponent implements OnInit {
     }).subscribe(
       (response: any) => {
         this.files = response;
-        console.log(this.files);
+      }
+    );
+  }
+
+  getClassFiles() {
+    this.http.get('http://ourschool.somee.com/api/Material/GetMaterialForTeacherInClass/'
+      + this.materialType, {
+      params: {
+        Levelid: this.levelId,
+        subjectid: this.subjectId,
+        teacherid: this.teacherId,
+        classid: this.currentClassId,
+      }
+    }).subscribe(
+      (response: any) => {
+        this.files = response;
       }
     );
   }
 
   onUpload() {
-    this.dialog.open(TeacherUploadMaterialsComponent);
+    this.dialog.open(TeacherUploadMaterialsComponent, {
+      data: {
+        teacherId: this.teacherId,
+        subjectId: this.subjectId,
+        levelId: this.levelId,
+        materialType: this.materialType,
+        classes: this.classes
+      }
+    });
   }
 
   onSelectChange() {
+    if (this.currentClassId == -1) {
+      this.getAllFiles();
+    } else {
+      this.getClassFiles()
+    }
+  }
 
+  downloadFile(fileId: any) {
+    this.http.get('http://ourschool.somee.com/api/Material/DownloadMaterial/' + fileId, {}).subscribe();
   }
 }

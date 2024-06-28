@@ -36,8 +36,10 @@ select {
 }
 
 button:hover {
-  background-color: #0C0279;
+  background-color: #fff;
+  color: #070147;
 }
+
 
 button:disabled {
   background: linear-gradient(135deg, #d3d3d3, #a9a9a9);

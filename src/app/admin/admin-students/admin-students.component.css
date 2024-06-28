@@ -26,8 +26,8 @@ button {
 }
 
 button:hover {
-  background-color: #0C0279;
-
+  background-color: #fff;
+  color: #070147;
 }
 
 .search-container {

@@ -1,0 +1,20 @@
+<app-teacher-navigation-bar></app-teacher-navigation-bar>
+
+<div class="select-container">
+  <label>Level: </label>
+  <select required name="level" [(ngModel)]="currentLevelId" (change)="onSelectChange()">
+    <option *ngFor="let level of levels" [value]=level.id>
+      {{ level.name }}
+    </option>
+  </select>
+</div>
+
+<div class="image-container">
+
+  <div class="image-wrapper" *ngFor="let subject of subjects">
+    <a href="teacher/materials/{{teacherId}}/{{subject.subject.id}}/{{subject.level.id}}"><img src="{{subject.image}}"></a>
+    <p>{{ subject.subject.name }}</p>
+  </div>
+
+
+</div>

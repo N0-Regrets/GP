@@ -11,19 +11,22 @@
       <div class="select-container">
         <label>Class: </label>
         <select required name="class" [(ngModel)]="currentClassId" (change)="onSelectChange()">
+          <option selected [value]=-1>All Classes</option>
           <option *ngFor="let class of classes" [value]=class.id>
             Class {{ class.num }}
           </option>
         </select>
       </div>
 
-      <div class="file-list">
-        <div class="file-item">
-          <span class="file-icon">📄</span>
-          <span class="file-name">Document1.pdf</span>
-        </div>
 
+      <div class="file-list">
+        <button *ngFor="let file of files" class="file-item" (click)="downloadFile(file.materialId)">
+          <span class="file-icon">📄</span>
+          <span class="file-name">{{ file.materialName }}</span>
+        </button>
       </div>
+
+
       <button class="upload-button" (click)="onUpload()">Upload File</button>
       <input type="file" id="fileInput" style="display: none;">
     </div>
