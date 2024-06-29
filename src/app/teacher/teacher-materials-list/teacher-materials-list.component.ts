@@ -1,6 +1,6 @@
 import {Component, Input, OnInit, Output} from '@angular/core';
-import {TeacherNavigationBarComponent} from "../teacher/teacher-navigation-bar/teacher-navigation-bar.component";
-import {AdminNavigationBarComponent} from "../admin/admin-navigation-bar/admin-navigation-bar.component";
+import {TeacherNavigationBarComponent} from "../teacher-navigation-bar/teacher-navigation-bar.component";
+import {AdminNavigationBarComponent} from "../../admin/admin-navigation-bar/admin-navigation-bar.component";
 import {MatDialog, MatDialogRef} from '@angular/material/dialog';
 import {HttpClient} from "@angular/common/http";
 import {ActivatedRoute} from "@angular/router";

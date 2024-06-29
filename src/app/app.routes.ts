@@ -9,8 +9,10 @@ import {AdminClassesComponent} from "./admin/admin-classes/admin-classes.compone
 import {AdminAssignTeachersComponent} from "./admin/admin-assign-teachers/admin-assign-teachers.component";
 import {TeacherSubjectsComponent} from "./teacher/teacher-subjects/teacher-subjects.component";
 import {TeacherMaterialsComponent} from './teacher/teacher-materials/teacher-materials.component';
-import {TeacherMaterialsListComponent} from "./teacher-materials-list/teacher-materials-list.component";
+import {TeacherMaterialsListComponent} from "./teacher/teacher-materials-list/teacher-materials-list.component";
 import {AdminAttendanceComponent} from "./admin/admin-attendance/admin-attendance.component";
+import {TeacherClassesComponent} from "./teacher/teacher-classes/teacher-classes.component";
+import {TeacherAttendanceComponent} from "./teacher/teacher-attendance/teacher-attendance.component";
 
 export const routes: Routes = [
   //Admin
@@ -34,5 +36,11 @@ export const routes: Routes = [
     path: 'teacher/materials/:teacher-id/:subject-id/:level-id/:material-type',
     component: TeacherMaterialsListComponent,
     title: "Materials List"
+  },
+  {path: 'teacher/classes/:teacher-id', component: TeacherClassesComponent, title: "Classes"},
+  {
+    path: 'teacher/classes/attendance/:teacher-id/:class-id',
+    component: TeacherAttendanceComponent,
+    title: "Attendance"
   },
 ];

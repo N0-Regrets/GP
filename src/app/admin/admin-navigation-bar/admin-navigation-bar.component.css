@@ -100,8 +100,8 @@ h1 {
   text-decoration: none;
   line-height: 75px;
   padding: 5px 15px;
-
-
+  border-radius: 3px;
+  transition: background-color 0.2s, color 0.2s;
 }
 li a:hover:not(.active) {
   color: white;

@@ -11,9 +11,19 @@ export class StudentsService {
   constructor(private http: HttpClient) {
   }
 
-  getStudents(): StudentModel[] {
+  getAllStudents(): StudentModel[] {
     let students: StudentModel[] = [];
     this.http.get('http://ourschool.somee.com/api/Student/GetStudents').subscribe(
+      (response: any) => {
+        students = response;
+      }
+    );
+    return students;
+  }
+
+  getClassStudents(classId: number): StudentModel[] {
+    let students: StudentModel[] = [];
+    this.http.get('http://ourschool.somee.com/api/Student/GetStudentsByClassId/' + classId).subscribe(
       (response: any) => {
         students = response;
       }

@@ -1,0 +1,33 @@
+<app-teacher-navigation-bar></app-teacher-navigation-bar>
+
+
+<form class="search-container" (ngSubmit)="search()">
+  <input type="text" id="search-input" placeholder="Search" name="search" [(ngModel)]="searchInput">
+  <button id="search-button">Search</button>
+</form>
+<div class="container">
+  <table>
+    <thead>
+
+    <th>Name</th>
+    <th>Status</th>
+
+    </thead>
+    <tbody>
+    <tr *ngFor="let student of filteredStudents;index as i">
+      <td>{{ student.name }}</td>
+      <td>
+        <select name="status" [(ngModel)]="attendanceStatuses[i]">
+          <option value="1">Absent</option>
+          <option selected value="2">Present</option>
+          <option value="3">Has Absence Excuse</option>
+        </select>
+      </td>
+    </tr>
+
+    </tbody>
+  </table>
+  <button (click)="onSave()">Save</button>
+
+</div>
+

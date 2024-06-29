@@ -1,0 +1,12 @@
+<app-teacher-navigation-bar></app-teacher-navigation-bar>
+<div class="container">
+  <div class="dropdown" *ngFor="let class of classes">
+    <button class="dropbtn">{{ "Class: " }}{{ class.classNumber }}</button>
+    <div class="dropdown-content">
+      <a href="teacher/classes/attendance/{{teacherId}}/{{class.classId}}">Attendance</a>
+      <a href="teacher/classes/grades/{{teacherId}}/{{class.classId}}">Grades</a>
+      <a href="teacher/classes/reports/{{teacherId}}/{{class.classId}}">Reports</a>
+    </div>
+  </div>
+
+</div>

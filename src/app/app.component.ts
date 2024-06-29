@@ -10,17 +10,12 @@ import {AdminAddStudentComponent} from "./admin/admin-add-student/admin-add-stud
 import {AdminTeachersComponent} from "./admin/admin-teachers/admin-teachers.component";
 import {AdminGradesComponent} from "./admin/admin-grades/admin-grades.component";
 import {ChatbotComponent} from "./chatbot/chatbot.component";
-import {TeacherProfileComponent} from "./teacher/teacher-profile/teacher-profile.component";
-import {
-  TeacherSubjectSummariesComponent
-} from "./teacher/teacher-subject-summaries/teacher-subject-summaries.component";
-import {
-  TeacherSubjectSummariesAddNewSummariesComponent
-} from "./teacher/teacher-subject-summaries-add-new-summaries/teacher-subject-summaries-add-new-summaries.component";
 import {TeacherNavigationBarComponent} from "./teacher/teacher-navigation-bar/teacher-navigation-bar.component";
 import {DisplaySubjectsComponent} from "./display-subjects/display-subjects.component";
 import {TeacherSubjectsComponent} from "./teacher/teacher-subjects/teacher-subjects.component";
-import {TeacherMaterialsListComponent} from "./teacher-materials-list/teacher-materials-list.component";
+import {TeacherMaterialsListComponent} from "./teacher/teacher-materials-list/teacher-materials-list.component";
+import {TeacherReportsComponent} from "./teacher/teacher-reports/teacher-reports.component";
+import {TeacherReportFormComponent} from "./teacher/teacher-reports/teacher-report-form/teacher-report-form.component";
 
 @Component({
   selector: 'app-root',
@@ -31,8 +26,8 @@ import {TeacherMaterialsListComponent} from "./teacher-materials-list/teacher-ma
   imports: [CommonModule, RouterOutlet, NavigationBarComponent,
     AnnouncementsComponent, AdminSubjectsComponent, AdminSubjectsComponent,
     AdminNavigationBarComponent, AdminStudentsComponent, AdminAddStudentComponent, AdminTeachersComponent,
-    AdminGradesComponent, ChatbotComponent, TeacherProfileComponent, TeacherSubjectSummariesComponent,
-    TeacherSubjectSummariesAddNewSummariesComponent, TeacherNavigationBarComponent, DisplaySubjectsComponent, TeacherSubjectsComponent, TeacherMaterialsListComponent]
+    AdminGradesComponent, ChatbotComponent,
+    TeacherNavigationBarComponent, DisplaySubjectsComponent, TeacherSubjectsComponent, TeacherMaterialsListComponent, TeacherReportsComponent, TeacherReportFormComponent]
 })
 export class AppComponent {
   title = 'GP';

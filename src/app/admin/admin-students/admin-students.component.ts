@@ -23,7 +23,7 @@ export class AdminStudentsComponent {
               private studentService: StudentsService) {
   }
 
-  students: StudentModel[] = this.studentService.getStudents();
+  students: StudentModel[] = this.studentService.getAllStudents();
   filteredStudents: StudentModel[] = this.students;
   searchInput: string = "";
 

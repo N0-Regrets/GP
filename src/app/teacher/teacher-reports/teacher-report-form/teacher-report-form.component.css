@@ -34,11 +34,11 @@ label {
 }
 
 
-input, select {
+input, select, textarea {
   width: 100%;
   padding: 8px;
   margin-bottom: 10px;
-  border: 1px solid #ccc;
+  border: 1px solid #070147;
   border-radius: 4px;
   box-sizing: border-box;
 }
@@ -48,13 +48,12 @@ button {
   width: 100%;
   padding: 10px;
   background-color: #070147;
-
+  border: 2px solid #070147;
   border-radius: 4px;
   color: white;
   font-size: 16px;
   cursor: pointer;
   transition: background-color 0.3s, color 0.3s;
-  border: 2px solid #070147;
 }
 
 button:disabled {
@@ -67,5 +66,9 @@ button:disabled {
 button:hover {
   background-color: #fff;
   color: #070147;
+}
+
+textarea {
+  height: 60px;
 }
 

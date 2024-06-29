@@ -1,13 +1,14 @@
 .container {
   margin-top: 20px;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   font-family: Roboto, sans-serif;
 }
 
 table {
-  width: 70%;
+  width: 50%;
   border-collapse: collapse;
   margin: 20px 0;
   background-color: #fff;
@@ -28,6 +29,7 @@ td {
   border-bottom: 1px solid #ddd;
 }
 
+
 th {
 
   letter-spacing: 0.1em;
@@ -42,10 +44,6 @@ tr:nth-child(even) {
 }
 
 
-td.actions {
-  white-space: nowrap;
-}
-
 button {
   background-color: #070147;
   color: white;
@@ -57,7 +55,7 @@ button {
   font-size: 1em;
   transition: background-color 0.3s, color 0.3s;
   text-align: center;
-
+  width: 100px;
 }
 
 button:hover {
@@ -65,14 +63,8 @@ button:hover {
   color: #070147;
 }
 
-.horizontal-form {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-top: 80px;
-}
 
-input {
+select, input {
   padding: 8px;
   width: 200px;
   border: 1px solid #ccc;
@@ -82,8 +74,8 @@ input {
 }
 
 .search-container {
-  font-family: sans-serif;
-  margin-top: 20px;
+  font-family: Robot, sans-serif;
+  margin-top: 30px;
   display: flex;
   justify-content: center;
 

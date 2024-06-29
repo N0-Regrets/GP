@@ -29,7 +29,7 @@ export class AdminAttendanceComponent implements OnInit {
     this.getAttendanceInfo();
   }
 
-  students: StudentModel[] = this.studentService.getStudents();
+  students: StudentModel[] = this.studentService.getAllStudents();
   filteredStudents: StudentModel[] = this.students;
   attendanceInfo: any = [];
   searchInput: string = "";
@@ -65,6 +65,8 @@ export class AdminAttendanceComponent implements OnInit {
   onSetThreshold(thresholdForm: any) {
 
     this.http.post('http://ourschool.somee.com/api/Attendance/AddLimitAbsentDays/'
-      + thresholdForm.value.threshold, null).subscribe();
+      + thresholdForm.value.threshold, null).subscribe(() => {
+      window.location.reload();
+    });
   }
 }

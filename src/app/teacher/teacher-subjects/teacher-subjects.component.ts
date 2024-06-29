@@ -26,6 +26,8 @@ export class TeacherSubjectsComponent implements OnInit {
   ngOnInit(): void {
     this.getLevels();
     this.getSubjects(0);
+    console.log(this.levels);
+    console.log(this.subjects);
   }
 
   levels: LevelModel[] = [];
