@@ -22,9 +22,11 @@ export class TeacherAddAnnouncementComponent implements OnInit {
 
   ngOnInit(): void {
     this.getClasses();
+    this.getSubjects()
   }
 
   classes: any[] = [];
+  subjects: any[] = [];
 
   getClasses() {
 
@@ -36,6 +38,16 @@ export class TeacherAddAnnouncementComponent implements OnInit {
     );
   }
 
+  getSubjects() {
+
+    this.http.get('http://ourschool.somee.com/api/Teacher/GetTeacherSubjects/' + this.data.teacherId).subscribe(
+      (response: any) => {
+        this.subjects = response;
+      }
+    );
+  }
+
+
   onPost(form: any) {
 
     console.log(form.value)
@@ -43,7 +55,8 @@ export class TeacherAddAnnouncementComponent implements OnInit {
       {
         title: form.value.title,
         message: form.value.message,
-        classIds: [form.value.class]
+        classIds: [form.value.class],
+        subjects: form.value.subject
 
       }).subscribe(
       () => {

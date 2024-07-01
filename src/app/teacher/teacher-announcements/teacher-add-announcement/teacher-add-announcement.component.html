@@ -4,9 +4,16 @@
     <input placeholder="Title" required name="title" ngModel>
 
     <select required name="class" ngModel>
-      <option selected disabled>Class</option>
+      <option selected disabled value="-1">Class</option>
       <option *ngFor="let class of classes" [value]=class.classId>
         Class {{ class.classNumber }}
+      </option>
+    </select>
+
+    <select required name="subject" ngModel>
+      <option selected disabled>Subject</option>
+      <option *ngFor="let subject of subjects" [value]=subject.subject.name>
+        {{ subject.subject.name }}
       </option>
     </select>
 
