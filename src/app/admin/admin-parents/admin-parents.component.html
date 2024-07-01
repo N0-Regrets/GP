@@ -6,13 +6,12 @@
 <table>
   <tbody>
   <tr *ngFor="let parent of filteredParents">
-    <td>{{ parent.name }}</td>
-    <td>{{ parent.phoneNumber }}</td>
-    <td>{{ parent.address }}</td>
+    <td>{{ parent.parentName }}</td>
+    <td>{{ parent.parentPhoneNumber }}</td>
     <td>
       <!--      <button class="table-button"> Update</button>-->
-      <button class="table-button" (click)="onRequestMeeting(parent.id)">Request Meeting</button>
-      <button class="table-button" (click)="onDelete(parent.id)">Delete</button>
+      <button class="table-button" (click)="onRequestMeeting(parent.studentId)">Request Meeting</button>
+      <button class="table-button" (click)="onDelete(parent.parentId)">Delete</button>
 
     </td>
   </tr>

@@ -41,9 +41,10 @@ export class AdminClassesComponent implements OnInit {
     this.http.get('http://ourschool.somee.com/api/Class/GetAllClasses').subscribe(
       (response: any) => {
         this.classes = response;
+        this.filteredClasses = this.classes;
       }
     );
-    this.filteredClasses = this.classes;
+
   }
 
   onSearch() {

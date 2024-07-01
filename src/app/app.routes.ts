@@ -13,6 +13,10 @@ import {TeacherMaterialsListComponent} from "./teacher/teacher-materials-list/te
 import {AdminAttendanceComponent} from "./admin/admin-attendance/admin-attendance.component";
 import {TeacherClassesComponent} from "./teacher/teacher-classes/teacher-classes.component";
 import {TeacherAttendanceComponent} from "./teacher/teacher-attendance/teacher-attendance.component";
+import {TeacherReportsComponent} from "./teacher/teacher-reports/teacher-reports.component";
+import {TeacherGradesComponent} from "./teacher/teacher-grades/teacher-grades.component";
+import {AdminAnnouncementsComponent} from "./admin/admin-announcements/admin-announcements.component";
+import {TeacherAnnouncementsComponent} from "./teacher/teacher-announcements/teacher-announcements.component";
 
 export const routes: Routes = [
   //Admin
@@ -25,6 +29,7 @@ export const routes: Routes = [
   {path: 'admin/classes', component: AdminClassesComponent, title: "Classes Page"},
   {path: 'admin/assign-teachers/:id', component: AdminAssignTeachersComponent, title: "Assign Teacher"},
   {path: 'admin/attendance', component: AdminAttendanceComponent, title: "Attendance Page"},
+  {path: 'admin/announcements', component: AdminAnnouncementsComponent},
   //Teacher
   {path: 'teacher/subjects/:teacher-id', component: TeacherSubjectsComponent, title: "Subjects"},
   {
@@ -43,4 +48,7 @@ export const routes: Routes = [
     component: TeacherAttendanceComponent,
     title: "Attendance"
   },
+  {path: 'teacher/classes/reports/:teacher-id/:class-id', component: TeacherReportsComponent, title: "Reports"},
+  {path: 'teacher/classes/grades/:teacher-id/:class-id', component: TeacherGradesComponent, title: "Grades"},
+  {path: 'teacher/announcements/:teacher-id', component: TeacherAnnouncementsComponent, title: "Announcements"},
 ];

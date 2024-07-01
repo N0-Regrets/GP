@@ -24,22 +24,24 @@ export class AdminParentsComponent implements OnInit {
   }
 
   ngOnInit() {
+
     this.getParents();
 
   }
 
 
   searchInput: string = "";
-  parents: ParentModel[] = [];
-  filteredParents: ParentModel[] = [];
+  parents: any[] = [];
+  filteredParents: any[] = [];
 
   getParents() {
-    this.http.get('http://ourschool.somee.com/api/Parent/GetParents').subscribe(
+    this.http.get('http://ourschool.somee.com/api/Student/GetStudentsWithParent').subscribe(
       (response: any) => {
         this.parents = response;
+        this.filteredParents = this.parents;
       }
     );
-    this.filteredParents = this.parents;
+
   }
 
 
@@ -55,7 +57,8 @@ export class AdminParentsComponent implements OnInit {
   }
 
   onRequestMeeting(id: any) {
-    this.http.post('http://ourschool.somee.com/api/RequestMeeting/AddRequestMeeting/' + id, null).subscribe(() => {
+    this.http.post('http://ourschool.somee.com/api/RequestMeeting/AddRequestMeeting/' + id, {}).subscribe(() => {
+      window.alert("Meeting Request Was Sent Successfully!");
     });
 
   }

@@ -17,10 +17,14 @@ import {StudentsService} from "../../services/students.service";
   templateUrl: './admin-students.component.html',
   styleUrl: './admin-students.component.css'
 })
-export class AdminStudentsComponent {
+export class AdminStudentsComponent implements OnInit {
 
   constructor(private http: HttpClient, private searchService: SearchService,
               private studentService: StudentsService) {
+  }
+
+  ngOnInit(): void {
+    throw new Error('Method not implemented.');
   }
 
   students: StudentModel[] = this.studentService.getAllStudents();

@@ -22,18 +22,31 @@ export class TeacherUploadMaterialsComponent {
               @Inject(MAT_DIALOG_DATA) public data: any) {
   }
 
+  selectedFile: File | undefined;
+
 
   currentClassId: any;
 
+  onFileSelected(event: Event) {
+    const input = event.target as HTMLInputElement;
+    if (input.files && input.files.length) {
+      this.selectedFile = input.files[0];
+    }
+  }
+
 
   onSubmit() {
-    this.http.post('http://ourschool.somee.com/api/Material/uploadMaterial/'
-      + this.data.materialType, {
-      Levelid: this.data.levelId,
-      subjectid: this.data.subjectId,
-      teacherid: this.data.teacherId,
-      classid: this.data.currentClassId,
+    const formData = new FormData();
+    formData.append('Levelid', this.data.levelId);
+    formData.append('subjectid', this.data.subjectId);
+    formData.append('teacherid', this.data.teacherId);
+    formData.append('classid', this.currentClassId);
+    formData.append('material', this.selectedFile as File);
+    formData.forEach((value, key) => {
+      console.log({key, value});
+    });
 
-    }).subscribe();
+    this.http.post('http://ourschool.somee.com/api/Material/uploadMaterial/'
+      + this.data.materialType, {formData}).subscribe();
   }
 }

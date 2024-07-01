@@ -14,8 +14,8 @@ export class SearchService {
     );
   }
 
-  exactSearch(elements: any[], name: string): any[] {
-    return elements.filter(element =>
-      name ? element.name === name : true);
-  }
+  // exactSearch(elements: any[], name: string): any[] {
+  //   return elements.filter(element =>
+  //     name ? element.name === name : true);
+  // }
 }

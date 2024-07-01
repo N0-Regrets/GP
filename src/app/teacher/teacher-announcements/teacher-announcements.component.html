@@ -1,0 +1,16 @@
+<app-teacher-navigation-bar></app-teacher-navigation-bar>
+<br>
+<main>
+  <div class="announcement-container">
+    <div *ngFor="let announcement of announcements" class="announcement">
+      <h2>{{ announcement.title }}</h2>
+      <p>{{ announcement.message }}</p>
+      <div class="announcement-time">{{ announcement.data }}</div>
+    </div>
+
+  </div>
+</main>
+
+
+<!-- Add Announcement button -->
+<button class="add-announcement-button" (click)="onAdd()">+ Add Announcement</button>

@@ -1,1 +1,37 @@
-<p>teacher-reports works!</p>
+<app-teacher-navigation-bar></app-teacher-navigation-bar>
+
+<form class="horizontal-form">
+  <label>Subject: </label>
+  <select [(ngModel)]="subjectId" name="subject">
+    <option *ngFor="let subject of subjects" value="{{subject.id}}">{{ subject.name }}</option>
+
+  </select>
+</form>
+
+<form class="search-container" (ngSubmit)="search()">
+  <input type="text" id="search-input" placeholder="Search" name="search" [(ngModel)]="searchInput">
+  <button id="search-button">Search</button>
+</form>
+<div class="container">
+
+  <table>
+    <thead>
+    <tr>
+      <th>Name</th>
+      <th>Parent's Phone Number</th>
+      <th>Evaluation Report</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let student of filteredStudents">
+      <td>{{ student.studentName }}</td>
+      <td>{{ student.parentPhoneNumber }}</td>
+      <td>
+        <button [disabled]="!subjectId" (click)="onSendReport(student.studentId)">Send Evaluation Report</button>
+      </td>
+    </tr>
+
+    </tbody>
+  </table>
+
+</div>

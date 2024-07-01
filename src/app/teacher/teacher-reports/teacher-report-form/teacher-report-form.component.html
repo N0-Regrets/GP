@@ -1,9 +1,9 @@
-<div class="form-wrapper">
+
   <div class="form-container">
-    <form id="studentForm" #studentForm="ngForm">
+    <form id="studentForm" (ngSubmit)="onSubmit()" #studentForm="ngForm">
       <h2>Evaluation Report</h2>
-      <label>Rating:</label>
-      <select name="Rating" required>
+      <label>Performance Level:</label>
+      <select name="Performance-Level" required [(ngModel)]="report.status">
         <option selected disabled value=""></option>
         <option value="0">Very Good</option>
         <option value="1">Good</option>
@@ -13,28 +13,28 @@
       </select>
 
       <label>Attitude:</label>
-      <select name="Attitude" required>
+      <select name="Attitude" required [(ngModel)]="report.attitude">
         <option selected disabled value=""></option>
         <option value="1">Rioter</option>
         <option value="0">Respectable</option>
       </select>
 
       <label>Progress Level (0-100)%: </label>
-      <input type="text" name="progress-level" required>
+      <input type="text" name="progress-level" required [(ngModel)]="report.progressLevel">
 
       <label>Good Traits:</label>
-      <textarea required name="good-traits"></textarea>
+      <textarea required name="good-traits" [(ngModel)]="report.advantages"></textarea>
 
       <label>Bad Traits:</label>
-      <textarea required name="bad-traits"></textarea>
+      <textarea required name="bad-traits" [(ngModel)]="report.disadvantages"></textarea>
 
       <label>Notes:</label>
-      <textarea required name="notes"></textarea>
+      <textarea required name="notes" [(ngModel)]="report.recommendations"></textarea>
 
       <button type="submit" [disabled]="studentForm.invalid">Send Report</button>
     </form>
   </div>
-</div>
+
 
 
 

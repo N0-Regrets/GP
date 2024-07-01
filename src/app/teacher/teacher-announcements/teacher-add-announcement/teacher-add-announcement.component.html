@@ -1,0 +1,18 @@
+<div class="container">
+  <h1>Create an Announcement</h1>
+  <form (ngSubmit)="onPost(announcementForm)" #announcementForm="ngForm">
+    <input placeholder="Title" required name="title" ngModel>
+
+    <select required name="class" ngModel>
+      <option selected disabled>Class</option>
+      <option *ngFor="let class of classes" [value]=class.classId>
+        Class {{ class.classNumber }}
+      </option>
+    </select>
+
+    <textarea ngModel name="message" placeholder="Write Your Announcement Here..."></textarea>
+    <button>Post</button>
+  </form>
+
+
+</div>

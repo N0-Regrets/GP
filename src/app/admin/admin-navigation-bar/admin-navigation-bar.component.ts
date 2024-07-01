@@ -27,4 +27,5 @@ export class AdminNavigationBarComponent {
     return this.currentUrl === url;
   }
 
+  protected readonly encodeURIComponent = encodeURIComponent;
 }

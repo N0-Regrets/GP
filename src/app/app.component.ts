@@ -1,8 +1,7 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
-import {NavigationBarComponent} from "./navigation-bar/navigation-bar.component";
-import {AnnouncementsComponent} from "./announcements/announcements.component";
+
 import {AdminSubjectsComponent} from "./admin/admin-subjects/admin-subjects.component";
 import {AdminNavigationBarComponent} from "./admin/admin-navigation-bar/admin-navigation-bar.component";
 import {AdminStudentsComponent} from "./admin/admin-students/admin-students.component";
@@ -16,6 +15,9 @@ import {TeacherSubjectsComponent} from "./teacher/teacher-subjects/teacher-subje
 import {TeacherMaterialsListComponent} from "./teacher/teacher-materials-list/teacher-materials-list.component";
 import {TeacherReportsComponent} from "./teacher/teacher-reports/teacher-reports.component";
 import {TeacherReportFormComponent} from "./teacher/teacher-reports/teacher-report-form/teacher-report-form.component";
+import {
+  AdminAddAnnouncementComponent
+} from "./admin/admin-announcements/admin-add-announcement/admin-add-announcement.component";
 
 @Component({
   selector: 'app-root',
@@ -23,11 +25,11 @@ import {TeacherReportFormComponent} from "./teacher/teacher-reports/teacher-repo
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
   host: {ngSkipHydration: 'true'},
-  imports: [CommonModule, RouterOutlet, NavigationBarComponent,
-    AnnouncementsComponent, AdminSubjectsComponent, AdminSubjectsComponent,
+  imports: [CommonModule, RouterOutlet,
+    AdminSubjectsComponent, AdminSubjectsComponent,
     AdminNavigationBarComponent, AdminStudentsComponent, AdminAddStudentComponent, AdminTeachersComponent,
     AdminGradesComponent, ChatbotComponent,
-    TeacherNavigationBarComponent, DisplaySubjectsComponent, TeacherSubjectsComponent, TeacherMaterialsListComponent, TeacherReportsComponent, TeacherReportFormComponent]
+    TeacherNavigationBarComponent, DisplaySubjectsComponent, TeacherSubjectsComponent, TeacherMaterialsListComponent, TeacherReportsComponent, TeacherReportFormComponent, AdminAddAnnouncementComponent]
 })
 export class AppComponent {
   title = 'GP';
