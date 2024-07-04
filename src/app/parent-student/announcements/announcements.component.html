@@ -1,0 +1,27 @@
+<app-chatbot></app-chatbot>
+<app-navigation-bar></app-navigation-bar>
+<br>
+<main>
+  <div>
+    <button (click)="change(1)" [class.active]="parentButton">You</button>
+    <button (click)="change(2)" [class.active]="childButton">Your Child</button>
+  </div>
+
+  <br>
+  <div class="announcement-container" *ngIf="parentButton">
+    <div *ngFor="let announcement of parentAnnouncements" class="announcement">
+      <h2>{{ announcement.title }}</h2>
+      <p>{{ announcement.message }}</p>
+      <div class="announcement-time">{{ announcement.date }}</div>
+    </div>
+  </div>
+
+  <div class="announcement-container" *ngIf="childButton">
+    <div *ngFor="let announcement of childAnnouncements" class="announcement">
+      <h2>{{ announcement.title }}</h2>
+      <p>{{ announcement.message }}</p>
+      <div class="announcement-time">{{ announcement.date }}</div>
+    </div>
+  </div>
+</main>
+

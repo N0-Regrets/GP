@@ -1,0 +1,30 @@
+<app-chatbot></app-chatbot>
+<app-navigation-bar></app-navigation-bar>
+<div class="container">
+
+  <table>
+    <thead>
+    <tr>
+      <th>Subject</th>
+      <th>Midterm Exam</th>
+      <th>Year Work</th>
+      <th>Final Grade</th>
+      <th>Total</th>
+    </tr>
+    </thead>
+    <tbody>
+
+    <tr *ngFor="let grade of grades;index as i">
+      <td class="name-td"> {{ grade.subject.name }}</td>
+      <td class="name-td"> {{ grade.midTerm }}</td>
+      <td class="name-td"> {{ grade.workyear }}</td>
+      <td class="name-td"> {{ grade.finalGrade }}</td>
+      <td class="name-td"> {{ grade.total }}</td>
+
+
+    </tr>
+    </tbody>
+  </table>
+
+</div>
+

@@ -1,0 +1,40 @@
+.image-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-top: 20px;
+  font-family: Roboto, sans-serif;
+}
+
+/* CSS for individual images */
+.image-wrapper {
+  text-align: center;
+  margin: 10px;
+  width: 300px; /* Adjust size as needed */
+}
+
+.image-wrapper img {
+  width: 300px; /* Adjusts to the container's width */
+  height: 300px;
+  display: block;
+  object-fit: cover;
+  border-radius: 10px;
+  transition: transform 0.4s ease-in-out;
+  margin-right: 30px;
+  margin-bottom: 30px;
+  cursor: pointer;
+}
+
+.image-wrapper p {
+  margin-top: 5px;
+  font-size: 20px;
+}
+
+.image-container img:hover {
+  transform: scale(1.1);
+  filter: brightness(0.5);
+}
+
+
+

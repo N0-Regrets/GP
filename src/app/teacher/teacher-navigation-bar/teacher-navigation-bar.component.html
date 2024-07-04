@@ -3,10 +3,11 @@
     <img class="logo" src="../../../assets/images/logo.jpg">
     <h1>Our School</h1>
     <ul>
-      <li><a href="teacher/subjects/?teacher-id=value">Subjects</a></li>
-      <li><a href="teacher/classes">Classes</a></li>
+      <li><a class="active" href="teacher/subjects/{{teacherId}}" [class.active]="isActive('/teacher/subjects')">Subjects</a>
+      </li>
+      <li><a href="teacher/classes/{{teacherId}}">Classes</a></li>
 
-      <li><a href="teacher/announcements">Announcements</a></li>
+      <li><a href="teacher/announcements/{{teacherId}}">Announcements</a></li>
     </ul>
     <a href="#">
       <img class="icon" src="../../../assets/images/user-icon.png">

@@ -1,0 +1,24 @@
+<div class="navigation-bar">
+  <div class="navigation-container">
+    <img class="logo" src="../../assets/images/logo.jpg">
+    <h1>Our School</h1>
+    <ul>
+      <li><a href="profile/{{parentId}}/{{studentId}}" [class.active]="isActive('/profile/'+parentId+'/'+studentId)">Profile</a>
+      </li>
+      <li><a href="announcements/{{parentId}}/{{studentId}}"
+             [class.active]="isActive('/announcements/'+parentId+'/'+studentId)">Announcements</a></li>
+      <li><a href="attendance/{{parentId}}/{{studentId}}"
+             [class.active]="isActive('/attendance/'+parentId+'/'+studentId)">Attendance</a></li>
+      <li><a href="teachers/{{parentId}}/{{studentId}}" [class.active]="isActive('/teachers/'+parentId+'/'+studentId)">Teachers</a>
+      </li>
+      <li><a href="grades/{{parentId}}/{{studentId}}" [class.active]="isActive('/grades/'+parentId+'/'+studentId)">Grades</a>
+      </li>
+      <li><a href="reports/{{parentId}}/{{studentId}}" [class.active]="isActive('/reports/'+parentId+'/'+studentId)">Reports</a>
+      </li>
+
+    </ul>
+    <a href="#" (click)="authenticationService.signOut()">
+      <img class="icon" src="../../assets/images/user-icon.png">
+    </a>
+  </div>
+</div>

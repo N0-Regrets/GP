@@ -1,5 +1,5 @@
 import {Component} from '@angular/core';
-import {NavigationEnd, Router} from "@angular/router";
+import {ActivatedRoute, NavigationEnd, Router} from "@angular/router";
 
 @Component({
   selector: 'app-teacher-navigation-bar',
@@ -13,13 +13,16 @@ export class TeacherNavigationBarComponent {
 
   currentUrl: string = "";
 
-  constructor(private router: Router) {
+  constructor(private router: Router, private route: ActivatedRoute) {
     this.router.events.subscribe((event) => {
       if (event instanceof NavigationEnd) {
         this.currentUrl = event.urlAfterRedirects;
       }
     });
   }
+
+  teacherId = this.route.snapshot.params["teacher-id"];
+
 
   isActive(url: string): boolean {
     return this.currentUrl === url;

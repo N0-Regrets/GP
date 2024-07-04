@@ -1,0 +1,29 @@
+<app-chatbot></app-chatbot>
+<app-navigation-bar></app-navigation-bar>
+<div class="container">
+
+  <div class="values-display">
+    <div class="value-box">
+      <h3>Total Absent Days</h3>
+      <p>{{ attendanceInfo.absentDays }}</p>
+    </div>
+    <div class="value-box">
+      <h3>Absence Warnings</h3>
+      <p>{{ attendanceInfo.absenceWarns }}</p>
+    </div>
+  </div>
+  <table>
+    <thead>
+    <th>Date</th>
+    <th>Attendance</th>
+    </thead>
+    <tbody>
+    <tr *ngFor="let element of (attendanceInfo.attendance)">
+      <td>{{ element.date }}</td>
+      <td [ngClass]="{'absent-class': element.attendanceType === 'Absent'}">{{ element.attendanceType }}</td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+
+

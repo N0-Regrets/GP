@@ -4,7 +4,7 @@ import { Component, AfterViewInit } from '@angular/core';
   selector: 'app-chatbot',
   standalone: true,
   templateUrl: './chatbot.component.html',
-  styleUrls: ['./chatbot.component.css']
+  styleUrls: []
 })
 export class ChatbotComponent implements AfterViewInit {
   ngAfterViewInit(): void {

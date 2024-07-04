@@ -1,0 +1,11 @@
+<app-navigation-bar></app-navigation-bar>
+
+<div class="image-container">
+
+  <div class="image-wrapper" *ngFor="let subject of subjects">
+    <a (click)="onClick(subject.subjectId)"><img src="{{subject.image}}"></a>
+    <p>{{ subject.subjectName }}</p>
+  </div>
+
+
+</div>

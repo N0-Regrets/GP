@@ -17,8 +17,28 @@ import {TeacherReportsComponent} from "./teacher/teacher-reports/teacher-reports
 import {TeacherGradesComponent} from "./teacher/teacher-grades/teacher-grades.component";
 import {AdminAnnouncementsComponent} from "./admin/admin-announcements/admin-announcements.component";
 import {TeacherAnnouncementsComponent} from "./teacher/teacher-announcements/teacher-announcements.component";
+import {AuthenticationComponent} from "./authentication/authentication.component";
+import {AttendanceComponent} from "./parent-student/attendance/attendance.component";
+import {StudentProfileComponent} from "./parent-student/student-profile/student-profile.component";
+import {AnnouncementsComponent} from "./parent-student/announcements/announcements.component";
+import {GradesComponent} from "./parent-student/grades/grades.component";
+import {SubjectsComponent} from "./subjects/subjects.component";
+import {TeachersComponent} from "./parent-student/teachers/teachers.component";
 
 export const routes: Routes = [
+
+  //Parent-Student
+  {path: 'attendance/:parent-id/:student-id', component: AttendanceComponent, title: "Attendance"},
+  {path: 'profile/:parent-id/:student-id', component: StudentProfileComponent, title: "Profile"},
+  {path: 'announcements/:parent-id/:student-id', component: AnnouncementsComponent, title: "announcements"},
+  {path: 'grades/:parent-id/:student-id', component: GradesComponent, title: "Grades"},
+  {path: 'reports/:parent-id/:student-id', component: SubjectsComponent, title: "Reports"},
+  {path: 'teachers/:parent-id/:student-id', component: TeachersComponent, title: "Teachers"},
+
+  //Authentication
+  {path: '', component: AuthenticationComponent, title: "Sign in"},
+
+
   //Admin
   {path: 'admin/add-student', component: AdminAddStudentComponent, title: "Add Student"},
   {path: 'admin/view-students', component: AdminStudentsComponent, title: "Students Page"},

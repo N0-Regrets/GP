@@ -2,11 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {ActivatedRoute} from "@angular/router";
 import {MatDialog} from "@angular/material/dialog";
-import {
-  TeacherUploadMaterialsComponent
-} from "../teacher-materials-list/teacher-upload-materials/teacher-upload-materials.component";
-import {StudentModel} from "../../models/student.model";
-import {StudentsService} from "../../services/students.service";
+
 import {SearchService} from "../../services/search.service";
 import {AdminNavigationBarComponent} from "../../admin/admin-navigation-bar/admin-navigation-bar.component";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
@@ -79,7 +75,7 @@ export class TeacherReportsComponent implements OnInit {
   }
 
   onSendReport(studentId: any) {
-    console.log(studentId);
+
     this.dialog.open(TeacherReportFormComponent, {
       data: {
         teacherId: this.teacherId,

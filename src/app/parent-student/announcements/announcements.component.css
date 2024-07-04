@@ -1,16 +1,19 @@
 
 main {
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
 }
 
 .announcement-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
   border-radius: 10px;
-  width: 90%;
+  width: 80%;
   max-width: 800px;
-  /* Increased max-width for larger screens */
-
 
 }
 
@@ -19,6 +22,7 @@ main {
   margin-bottom: 30px;
   border-radius: 5px;
   padding: 20px;
+  width: 80%;
 }
 
 .announcement h2 {
@@ -40,30 +44,28 @@ main {
   text-align: right;
 }
 
-/* Styling for the Add Announcement button */
-.add-announcement-button {
-  position: fixed;
-  bottom: 75px;
-  right: 75px;
-
+button {
+  padding: 15px 25px;
+  font-size: 18px;
+  border-radius: 5px;
   background-color: #070147;
   color: #fff;
-
-  padding: 10px 20px;
-  font-size: 1em;
-  border-radius: 5px;
   cursor: pointer;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  z-index: 1000;
   transition: background-color 0.3s, color 0.3s;
   border: 2px solid #070147;
-
+  margin-right: 20px;
 }
 
-.add-announcement-button:hover {
+button:hover {
   background-color: #fff;
   color: #070147;
 }
+
+.active {
+  background-color: #fff;
+  color: #070147;
+}
+
 
 /* Media query for smaller screens */
 @media screen and (max-width: 600px) {

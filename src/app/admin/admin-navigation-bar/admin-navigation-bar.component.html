@@ -19,7 +19,7 @@
       <li><a href="admin/teachers" [class.active]="isActive('/admin/teachers')">Teachers</a></li>
       <li><a href="admin/announcements" [class.active]="isActive('/admin/announcements')">Announcements</a></li>
     </ul>
-    <a href="#">
+    <a href="#" (click)="authenticationService.signOut()">
       <img class="icon" src="../../assets/images/user-icon.png">
     </a>
   </div>
