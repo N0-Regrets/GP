@@ -10,6 +10,7 @@ import {LevelModel} from "../../models/level.model";
 import {DepartmentModel} from "../../models/department.model";
 import {SubjectModel} from "../../models/subject.model";
 import {ActivatedRoute} from "@angular/router";
+import {TeacherNavigationBarComponent} from "../teacher-navigation-bar/teacher-navigation-bar.component";
 
 @Component({
   selector: 'app-teacher-grades',
@@ -17,7 +18,8 @@ import {ActivatedRoute} from "@angular/router";
   imports: [
     AdminNavigationBarComponent,
     FormsModule,
-    NgForOf
+    NgForOf,
+    TeacherNavigationBarComponent
   ],
   templateUrl: './teacher-grades.component.html',
   styleUrl: './teacher-grades.component.css'

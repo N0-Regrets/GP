@@ -13,7 +13,8 @@
       </li>
       <li><a href="grades/{{parentId}}/{{studentId}}" [class.active]="isActive('/grades/'+parentId+'/'+studentId)">Grades</a>
       </li>
-      <li><a href="reports/{{parentId}}/{{studentId}}" [class.active]="isActive('/reports/'+parentId+'/'+studentId)">Reports</a>
+      <li *ngIf="parentId!='x'"><a href="reports/{{parentId}}/{{studentId}}"
+                                   [class.active]="isActive('/reports/'+parentId+'/'+studentId)">Reports</a>
       </li>
 
     </ul>

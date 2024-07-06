@@ -69,3 +69,9 @@ button:hover {
   color: #070147;
 }
 
+mat-error {
+  color: #f44336; /* Red color for error messages */
+  font-size: 0.875em; /* Slightly smaller font size */
+  margin-top: 4px; /* Margin to separate error message from input */
+  display: block;
+}

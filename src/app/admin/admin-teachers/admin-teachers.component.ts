@@ -21,7 +21,8 @@ import {SearchService} from "../../services/search.service";
 export class AdminTeachersComponent implements OnInit {
 
 
-  constructor(private http: HttpClient, private searchService: SearchService, private schoolDataService: SchoolDataService) {
+  constructor(private http: HttpClient, private searchService: SearchService,
+              private schoolDataService: SchoolDataService) {
   }
 
 
@@ -58,8 +59,13 @@ export class AdminTeachersComponent implements OnInit {
   }
 
   onDelete(id: any) {
-    this.http.delete('http://ourschool.somee.com/api/Teacher/Delete/' + id).subscribe(() => {
-      window.location.reload();
-    });
+    const userConfirmed = window.confirm('Are you sure you want to delete this teacher?');
+    if (userConfirmed) {
+      this.http.delete('http://ourschool.somee.com/api/Teacher/Delete/'
+        + id).subscribe(() => {
+        window.location.reload();
+      });
+    }
+
   }
 }

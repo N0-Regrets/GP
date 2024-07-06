@@ -1,0 +1,9 @@
+<div class="image-container">
+
+  <div class="image-wrapper" *ngFor="let child of children">
+    <a href="profile/{{parentId}}/{{child.id}}"><img [src]="getImage(child.gender)"></a>
+    <p>{{ child.name }}</p>
+  </div>
+
+</div>
+

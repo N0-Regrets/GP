@@ -3,17 +3,43 @@
     <h1>Create an Announcement</h1>
     <form (ngSubmit)="onPost(announcementsForm)" #announcementsForm="ngForm">
 
-      <input placeholder="Title" required name="title" ngModel>
-      <select ngModel name="forWhich">
-        <option selected disabled>For</option>
+      <input
+        placeholder="Title"
+        required
+        name="title"
+        ngModel
+        #title="ngModel">
+      <div *ngIf="title.invalid && (title.dirty || title.touched)">
+        <mat-error *ngIf="title.errors?.['required']">Title is required.</mat-error>
+      </div>
+      <br>
+      <select
+        [ngModel]="forWhich"
+        name="forWhich"
+        required
+        #forWhichModel="ngModel">
+        <option value="-1" selected disabled>For</option>
         <option value="1">Parents</option>
         <option value="2">Students</option>
         <option value="3">Teachers</option>
       </select>
-      <textarea name="message" required placeholder="Write Your Announcement Here..." ngModel></textarea>
+      <div
+        *ngIf=" (forWhichModel.value==-1)|| (forWhichModel.invalid && (forWhichModel.dirty || forWhichModel.touched))">
+        <mat-error>Target audience is required.</mat-error>
+      </div>
+
+      <textarea
+        name="message"
+        required
+        placeholder="Write Your Announcement Here..."
+        ngModel
+        #message="ngModel">
+      </textarea>
+      <div *ngIf="message.invalid && (message.dirty || message.touched)">
+        <mat-error *ngIf="message.errors?.['required']">Message is required.</mat-error>
+      </div>
+
       <button [disabled]="announcementsForm.invalid">Post</button>
     </form>
-
   </div>
 </main>
-

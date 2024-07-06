@@ -4,16 +4,25 @@
   <button id="search-button">Search</button>
 </form>
 <table>
+  <thead>
+  <th>Name</th>
+  <th>Phone Number</th>
+  <th>Request a Meeting</th>
+  <th>Delete</th>
+
+  </thead>
   <tbody>
   <tr *ngFor="let parent of filteredParents">
     <td>{{ parent.parentName }}</td>
     <td>{{ parent.parentPhoneNumber }}</td>
     <td>
-      <!--      <button class="table-button"> Update</button>-->
       <button class="table-button" (click)="onRequestMeeting(parent.studentId)">Request Meeting</button>
-      <button class="table-button" (click)="onDelete(parent.parentId)">Delete</button>
-
     </td>
+    <td>
+      <button class="table-button" (click)="onDelete(parent.parentId)">Delete</button>
+    </td>
+
+
   </tr>
   </tbody>
 </table>

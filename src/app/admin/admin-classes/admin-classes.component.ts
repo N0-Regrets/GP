@@ -53,9 +53,13 @@ export class AdminClassesComponent implements OnInit {
   }
 
   onDelete(id: any) {
-    this.http.delete('http://ourschool.somee.com/api/Class/DeleteClass/' + id).subscribe(() => {
-      window.location.reload();
-    });
+    const userConfirmed = window.confirm('Are you sure you want to delete this class?');
+    if (userConfirmed) {
+      this.http.delete('http://ourschool.somee.com/api/Class/DeleteClass/' + id).subscribe(() => {
+        window.location.reload();
+      });
+    }
+
   }
 
   onAddClass(form: any) {

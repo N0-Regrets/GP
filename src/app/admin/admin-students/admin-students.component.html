@@ -4,6 +4,14 @@
   <button id="search-button">Search</button>
 </form>
 <table>
+  <thead>
+  <th>Name</th>
+  <th>Gender</th>
+  <th>Birthdate</th>
+  <th>Religion</th>
+  <th>Nationality</th>
+  <th>Delete</th>
+  </thead>
   <tbody>
   <tr *ngFor="let student of filteredStudents">
     <td>{{ student.name }}</td>

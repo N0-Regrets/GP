@@ -27,6 +27,14 @@
 </form>
 
 <table>
+  <thead>
+  <th>Level</th>
+  <th>Department</th>
+  <th>Class Number</th>
+  <th>Number of Students</th>
+  <th>Assign Teacher</th>
+  <th>Delete</th>
+  </thead>
   <tbody>
   <tr *ngFor="let class of filteredClasses">
     <td>{{ class.level.name }}</td>
@@ -37,6 +45,8 @@
 
     <td>
       <button class="table-button" (click)="onAssignTeacher(class.id)">Assign Teacher</button>
+    </td>
+    <td>
       <button class="table-button" (click)="onDelete(class.id)"> Delete</button>
     </td>
   </tr>

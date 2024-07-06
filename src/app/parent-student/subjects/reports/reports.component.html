@@ -1,0 +1,47 @@
+<app-navigation-bar></app-navigation-bar>
+<app-chatbot></app-chatbot>
+<br>
+<br>
+<main>
+  <div class="form-container">
+
+    <h2>Evaluation Report</h2>
+    <label>Performance Level:</label>
+    <select name="Performance-Level" required [(ngModel)]="report.status">
+      <option selected disabled value=""></option>
+      <option value="0">Very Good</option>
+      <option value="1">Good</option>
+      <option value="2">Not Bad</option>
+      <option value="3">Bad</option>
+      <option value="4">So Bad</option>
+    </select>
+
+    <label>Attitude:</label>
+    <select name="Attitude" required [(ngModel)]="report.attitude">
+      <option selected disabled value=""></option>
+      <option value="1">Rioter</option>
+      <option value="0">Respectable</option>
+    </select>
+
+    <label>Progress Level (0-100)%: </label>
+    <input type="text" name="progress-level" required [(ngModel)]="report.progressLevel">
+
+    <label>Good Traits:</label>
+    <textarea required name="good-traits" [(ngModel)]="report.advantages"></textarea>
+
+    <label>Bad Traits:</label>
+    <textarea required name="bad-traits" [(ngModel)]="report.disadvantages"></textarea>
+
+    <label>Notes:</label>
+    <textarea required name="notes" [(ngModel)]="report.recommendations"></textarea>
+
+
+  </div>
+
+</main>
+
+
+
+
+
+

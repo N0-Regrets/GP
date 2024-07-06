@@ -11,6 +11,8 @@ import {ActivatedRoute, NavigationEnd, Router} from "@angular/router";
 export class TeacherNavigationBarComponent {
 
 
+  teacherId = this.route.snapshot.params["teacher-id"];
+
   currentUrl: string = "";
 
   constructor(private router: Router, private route: ActivatedRoute) {
@@ -21,7 +23,6 @@ export class TeacherNavigationBarComponent {
     });
   }
 
-  teacherId = this.route.snapshot.params["teacher-id"];
 
 
   isActive(url: string): boolean {

@@ -2,7 +2,7 @@
 <app-navigation-bar></app-navigation-bar>
 <br>
 <main>
-  <div>
+  <div *ngIf="parentId!='x'">
     <button (click)="change(1)" [class.active]="parentButton">You</button>
     <button (click)="change(2)" [class.active]="childButton">Your Child</button>
   </div>

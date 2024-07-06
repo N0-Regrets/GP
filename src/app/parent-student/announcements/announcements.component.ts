@@ -36,8 +36,9 @@ export class AnnouncementsComponent implements OnInit {
 
 
   studentId = this.route.snapshot.params["student-id"];
-  parentButton: boolean = true;
-  childButton: boolean = false;
+  parentId = this.route.snapshot.params["parent-id"];
+  parentButton: boolean = false;
+  childButton: boolean = true;
 
   getChildAnnouncements(): void {
     this.http.get('http://ourschool.somee.com/api/GetStudentsAnnouncements', {

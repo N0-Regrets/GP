@@ -86,9 +86,14 @@ export class AdminSubjectsComponent implements OnInit {
   }
 
   onDelete(index: number) {
-    this.http.delete('http://ourschool.somee.com/api/SubjectRecord/Delete/' + this.subjectsRecords[index].subLevlDeptTermId).subscribe(() => {
-      window.location.reload();
-    });
+    const userConfirmed = window.confirm('Are you sure you want to delete this subject record?');
+    if (userConfirmed) {
+      this.http.delete('http://ourschool.somee.com/api/SubjectRecord/Delete/'
+        + this.subjectsRecords[index].subLevlDeptTermId).subscribe(() => {
+        window.location.reload();
+      });
+    }
+
   }
 
 

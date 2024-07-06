@@ -1,5 +1,6 @@
 <app-admin-navigation-bar></app-admin-navigation-bar>
-<div class="container">
+<br>
+<main>
   <form class="horizontal-form" (ngSubmit)="getTable(studentsForm)" #studentsForm="ngForm">
     <select required name="level" ngModel>
       <option value="" disabled selected>Level</option>
@@ -26,7 +27,7 @@
     <tr>
       <th>Name</th>
       <th *ngFor="let subject of subjects">{{ subject.name }}</th>
-      <th></th>
+      <th>Save</th>
     </tr>
     </thead>
     <tbody>
@@ -45,4 +46,4 @@
     </tbody>
   </table>
 
-</div>
+</main>

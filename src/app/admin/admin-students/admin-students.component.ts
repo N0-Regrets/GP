@@ -38,9 +38,13 @@ export class AdminStudentsComponent implements OnInit {
   }
 
   onDelete(id: any) {
-    this.http.delete('http://ourschool.somee.com/api/Student/DeleteStudent/' + id).subscribe(() => {
-      window.location.reload();
-    });
+    const userConfirmed = window.confirm('Are you sure you want to delete this student?');
+    if (userConfirmed) {
+      this.http.delete('http://ourschool.somee.com/api/Student/DeleteStudent/' + id).subscribe(() => {
+        window.location.reload();
+      });
+    }
+
   }
 
 }

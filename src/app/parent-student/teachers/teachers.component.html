@@ -1,10 +1,11 @@
 <app-navigation-bar></app-navigation-bar>
+<app-chatbot></app-chatbot>
 <br>
 <main>
-  <div class="teacher-box">
-    <h2>Teacher Name</h2>
-    <p><span class="icon">📞</span>Phone: 123-456-7890</p>
-    <p><span class="icon">🗂️</span>Subject: Mathematics</p>
+  <div class="teacher-box" *ngFor="let teacher of teachers">
+    <h2>{{ teacher.teacherName }}</h2>
+    <p><span class="icon">📞</span>{{ teacher.teacherPhone }}</p>
+    <p><span class="icon">🗂️</span>Subject: {{ teacher.subjectName }}</p>
     <a href="#" class="chat-link"><span class="icon">💬</span>Chat</a>
   </div>
 </main>

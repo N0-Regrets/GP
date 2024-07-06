@@ -22,8 +22,11 @@ import {AttendanceComponent} from "./parent-student/attendance/attendance.compon
 import {StudentProfileComponent} from "./parent-student/student-profile/student-profile.component";
 import {AnnouncementsComponent} from "./parent-student/announcements/announcements.component";
 import {GradesComponent} from "./parent-student/grades/grades.component";
-import {SubjectsComponent} from "./subjects/subjects.component";
+import {SubjectsComponent} from "./parent-student/subjects/subjects.component";
 import {TeachersComponent} from "./parent-student/teachers/teachers.component";
+import {ChildrenComponent} from "./parent-student/children/children.component";
+import {ReportsComponent} from "./parent-student/subjects/reports/reports.component";
+import {AuthenticationGuardService} from "./services/authentication-guard.service";
 
 export const routes: Routes = [
 
@@ -33,10 +36,12 @@ export const routes: Routes = [
   {path: 'announcements/:parent-id/:student-id', component: AnnouncementsComponent, title: "announcements"},
   {path: 'grades/:parent-id/:student-id', component: GradesComponent, title: "Grades"},
   {path: 'reports/:parent-id/:student-id', component: SubjectsComponent, title: "Reports"},
+  {path: 'report/:student-id/:parent-id/:subject-id', component: ReportsComponent, title: "Reports"},
   {path: 'teachers/:parent-id/:student-id', component: TeachersComponent, title: "Teachers"},
+  {path: 'children/:parent-id', component: ChildrenComponent, title: "Children"},
 
   //Authentication
-  {path: '', component: AuthenticationComponent, title: "Sign in"},
+  {path: '', component: AuthenticationComponent, title: "Sign in", canActivate: [AuthenticationGuardService]},
 
 
   //Admin
@@ -49,7 +54,7 @@ export const routes: Routes = [
   {path: 'admin/classes', component: AdminClassesComponent, title: "Classes Page"},
   {path: 'admin/assign-teachers/:id', component: AdminAssignTeachersComponent, title: "Assign Teacher"},
   {path: 'admin/attendance', component: AdminAttendanceComponent, title: "Attendance Page"},
-  {path: 'admin/announcements', component: AdminAnnouncementsComponent},
+  {path: 'admin/announcements', component: AdminAnnouncementsComponent, title: "Announcements"},
   //Teacher
   {path: 'teacher/subjects/:teacher-id', component: TeacherSubjectsComponent, title: "Subjects"},
   {

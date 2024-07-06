@@ -1,16 +1,14 @@
 main {
-  margin-top: 20px;
   font-family: Roboto, Tahoma, Geneva, Verdana, sans-serif;
   background-color: #ececec;
-  margin: 0;
   padding: 0;
   display: flex;
   justify-content: center;
-  align-items: center;
-  height: 100vh;
+  height: 100%;
 }
 
 .container {
+  margin-top: 40px;
   background-color: #ffffff;
   padding: 30px;
   border-radius: 12px;
@@ -18,6 +16,7 @@ main {
   max-width: 600px;
   /* Adjusted to accommodate two columns */
   width: 100%;
+  height: 400px;
 }
 
 h1 {

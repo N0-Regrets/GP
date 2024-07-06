@@ -51,9 +51,13 @@ export class AdminParentsComponent implements OnInit {
   }
 
   onDelete(id: any) {
-    this.http.delete('http://ourschool.somee.com/api/Parent/DeleteParent/' + id).subscribe(() => {
-      window.location.reload();
-    });
+
+    const userConfirmed = window.confirm('Are you sure you want to delete this parent?');
+    if (userConfirmed) {
+      this.http.delete('http://ourschool.somee.com/api/Parent/DeleteParent/' + id).subscribe(() => {
+        window.location.reload();
+      });
+    }
   }
 
   onRequestMeeting(id: any) {
