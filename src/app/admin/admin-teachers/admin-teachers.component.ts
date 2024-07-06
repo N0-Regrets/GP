@@ -50,7 +50,10 @@ export class AdminTeachersComponent implements OnInit {
     console.log(this.teacherToBeAdded)
     this.http.post('http://ourschool.somee.com/api/Teacher/Add', this.teacherToBeAdded).subscribe(() => {
       window.location.reload();
-    });
+      }, error => {
+        window.alert("Something went wrong,please try again");
+      }
+    );
   }
 
   search(): void {

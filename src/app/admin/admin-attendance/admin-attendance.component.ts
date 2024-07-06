@@ -37,7 +37,7 @@ export class AdminAttendanceComponent implements OnInit {
 
   getAttendanceInfo() {
     for (let student of this.students) {
-      this.http.get('http://ourschool.somee.com/api/Attendance/GetStudenceAttendanceReport/' + student.id).subscribe(
+      this.http.get('http://ourschool.somee.com/api/Attendance/GetStudenceAttendanceReport/' + student.name).subscribe(
         (response: any) => {
           this.attendanceInfo.push(response);
         }

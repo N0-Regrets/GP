@@ -11,4 +11,6 @@ export class ParentModel {
     this.phoneNumber = "";
     this.address = "";
   }
+
+
 }

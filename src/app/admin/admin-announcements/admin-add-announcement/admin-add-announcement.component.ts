@@ -33,6 +33,9 @@ export class AdminAddAnnouncementComponent {
       }).subscribe(
       () => {
         window.location.reload();
+      },
+      error => {
+        window.alert("Something went wrong please try again");
       }
     );
 

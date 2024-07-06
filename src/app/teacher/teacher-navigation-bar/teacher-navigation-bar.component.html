@@ -3,17 +3,23 @@
     <img class="logo" src="../../../assets/images/logo.jpg">
     <h1>Our School</h1>
     <ul>
+      <li><a class="active" href="teacher/profile/{{teacherId}}"
+             [class.active]="isActive('/teacher/profile/'+teacherId)">Profile</a>
+      </li>
+
       <li><a class="active" href="teacher/subjects/{{teacherId}}"
              [class.active]="isActive('/teacher/subjects/'+teacherId)">Subjects</a>
       </li>
       <li><a href="teacher/classes/{{teacherId}}"
              [class.active]="isActive('/teacher/classes/'+teacherId)">Classes</a></li>
-
       <li><a href="teacher/announcements/{{teacherId}}"
              [class.active]="isActive('/teacher/announcements/'+teacherId)">Announcements</a></li>
     </ul>
     <a href="#">
       <img class="icon" src="../../../assets/images/user-icon.png">
+    </a>
+    <a href="teacher/chat/{{teacherId}}">
+      <img class="icon" src="../../../assets/images/chat-icon.png">
     </a>
 
   </div>

@@ -80,7 +80,11 @@ export class AdminClassesComponent implements OnInit {
 
     this.http.post('http://ourschool.somee.com/api/Class/AddClass', classToBeAdded).subscribe(() => {
       window.location.reload();
-    });
+      },
+      error => {
+        window.alert("Something went wrong please try again later.")
+      }
+    );
   }
 
   onAssignTeacher(id: any) {

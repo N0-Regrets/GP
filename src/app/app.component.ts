@@ -20,6 +20,7 @@ import {
 import {AuthenticationComponent} from "./authentication/authentication.component";
 import {AttendanceComponent} from "./parent-student/attendance/attendance.component";
 import {AuthenticationService} from "./services/authentication.service";
+import {ChatComponent} from "./chat/chat.component";
 
 @Component({
   selector: 'app-root',
@@ -31,7 +32,7 @@ import {AuthenticationService} from "./services/authentication.service";
     AdminSubjectsComponent, AdminSubjectsComponent,
     AdminNavigationBarComponent, AdminStudentsComponent, AdminAddStudentComponent, AdminTeachersComponent,
     AdminGradesComponent, ChatbotComponent,
-    TeacherNavigationBarComponent, HttpClientModule, TeacherSubjectsComponent, TeacherMaterialsListComponent, TeacherReportsComponent, TeacherReportFormComponent, AdminAddAnnouncementComponent, AuthenticationComponent, AttendanceComponent]
+    TeacherNavigationBarComponent, HttpClientModule, TeacherSubjectsComponent, TeacherMaterialsListComponent, TeacherReportsComponent, TeacherReportFormComponent, AdminAddAnnouncementComponent, AuthenticationComponent, AttendanceComponent, ChatComponent]
 })
 export class AppComponent implements OnInit {
   constructor(private authentication: AuthenticationService,) {

@@ -12,6 +12,9 @@ export class TeacherModel {
   degree: string;
   teacherSubjects: SubjectModel[];
   teacherSubjectsId: number[];
+  email: string = "";
+  gmailAddress: string = "";
+
 
   constructor() {
     this.name = "";
@@ -23,6 +26,8 @@ export class TeacherModel {
     this.degree = "";
     this.teacherSubjects = [];
     this.teacherSubjectsId = [];
+    this.email = "";
+    this.gmailAddress = "";
   }
 
 }

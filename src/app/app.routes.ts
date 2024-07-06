@@ -27,6 +27,8 @@ import {TeachersComponent} from "./parent-student/teachers/teachers.component";
 import {ChildrenComponent} from "./parent-student/children/children.component";
 import {ReportsComponent} from "./parent-student/subjects/reports/reports.component";
 import {AuthenticationGuardService} from "./services/authentication-guard.service";
+import {TeacherProfileComponent} from "./teacher/teacher-profile/teacher-profile.component";
+import {ChatComponent} from "./chat/chat.component";
 
 export const routes: Routes = [
 
@@ -38,7 +40,9 @@ export const routes: Routes = [
   {path: 'reports/:parent-id/:student-id', component: SubjectsComponent, title: "Reports"},
   {path: 'report/:student-id/:parent-id/:subject-id', component: ReportsComponent, title: "Reports"},
   {path: 'teachers/:parent-id/:student-id', component: TeachersComponent, title: "Teachers"},
+  {path: 'subjects/:parent-id/:student-id', component: SubjectsComponent, title: "Subjects"},
   {path: 'children/:parent-id', component: ChildrenComponent, title: "Children"},
+  {path: 'chat/:parent-id/:student-id', component: ChatComponent, title: "Chat"},
 
   //Authentication
   {path: '', component: AuthenticationComponent, title: "Sign in", canActivate: [AuthenticationGuardService]},
@@ -55,8 +59,10 @@ export const routes: Routes = [
   {path: 'admin/assign-teachers/:id', component: AdminAssignTeachersComponent, title: "Assign Teacher"},
   {path: 'admin/attendance', component: AdminAttendanceComponent, title: "Attendance Page"},
   {path: 'admin/announcements', component: AdminAnnouncementsComponent, title: "Announcements"},
+
   //Teacher
   {path: 'teacher/subjects/:teacher-id', component: TeacherSubjectsComponent, title: "Subjects"},
+  {path: 'teacher/profile/:teacher-id', component: TeacherProfileComponent, title: "Profile"},
   {
     path: 'teacher/materials/:teacher-id/:subject-id/:level-id',
     component: TeacherMaterialsComponent,
@@ -76,4 +82,6 @@ export const routes: Routes = [
   {path: 'teacher/classes/reports/:teacher-id/:class-id', component: TeacherReportsComponent, title: "Reports"},
   {path: 'teacher/classes/grades/:teacher-id/:class-id', component: TeacherGradesComponent, title: "Grades"},
   {path: 'teacher/announcements/:teacher-id', component: TeacherAnnouncementsComponent, title: "Announcements"},
+  {path: 'teacher/chat/:teacher-id', component: ChatComponent, title: "Chat"},
+
 ];

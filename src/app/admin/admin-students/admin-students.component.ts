@@ -24,7 +24,7 @@ export class AdminStudentsComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    throw new Error('Method not implemented.');
+
   }
 
   students: StudentModel[] = this.studentService.getAllStudents();

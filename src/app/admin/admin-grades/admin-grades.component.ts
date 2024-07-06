@@ -77,7 +77,8 @@ export class AdminGradesComponent {
     this.http.put('http://ourschool.somee.com/api/Grades/UpdateFinalDegree/' + this.students[studentIndex].id,
       grades).subscribe(() => {
       window.location.reload();
-    });
+      }
+    );
 
   }
 

@@ -70,6 +70,8 @@ export class AdminAssignTeachersComponent implements OnInit {
     this.http.put('http://ourschool.somee.com/api/Class/AssignTeachers/UpdateClassRecords/' + this.classId, putObjects).subscribe(
       (response: any) => {
         window.location.reload();
+      }, error => {
+        window.alert("Something went wrong please try again");
       }
     );
   }

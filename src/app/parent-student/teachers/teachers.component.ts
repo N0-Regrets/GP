@@ -23,7 +23,7 @@ export class TeachersComponent implements OnInit {
     this.getTeachers();
   }
 
-
+  parentId = this.route.snapshot.params["parent-id"];
   teachers: any[] = [];
   studentId = this.route.snapshot.params["student-id"];
 
@@ -35,4 +35,5 @@ export class TeachersComponent implements OnInit {
     );
   }
 
+  protected readonly parent = parent;
 }
