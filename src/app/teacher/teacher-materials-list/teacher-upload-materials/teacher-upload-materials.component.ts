@@ -37,16 +37,19 @@ export class TeacherUploadMaterialsComponent {
 
   onSubmit() {
     const formData = new FormData();
+
+
     formData.append('Levelid', this.data.levelId);
-    formData.append('subjectid', this.data.subjectId);
-    formData.append('teacherid', this.data.teacherId);
-    formData.append('classid', this.currentClassId);
+    formData.append('SubjectId', this.data.subjectId);
+    formData.append('TeacherId', this.data.teacherId);
+    formData.append('MaterialClass', this.currentClassId);
     formData.append('material', this.selectedFile as File);
     formData.forEach((value, key) => {
       console.log({key, value});
     });
 
-    this.http.post('http://ourschool.somee.com/api/Material/uploadMaterial/'
+    this.data.materialType = +this.data.materialType;
+    this.http.post('http://ourschool.somee.com/api/Material/uploadMaterial2/'
       + this.data.materialType, {formData}).subscribe();
   }
 }

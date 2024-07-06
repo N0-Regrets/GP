@@ -1,4 +1,11 @@
-<body>
+<div *ngIf="!checkIfUrlContainsTeacher()">
+  <app-navigation-bar></app-navigation-bar>
+</div>
+<div *ngIf="checkIfUrlContainsTeacher()">
+  <app-teacher-navigation-bar></app-teacher-navigation-bar>
+</div>
+<br>
+<main>
 <div class="container">
   <div class="sidebar">
 
@@ -44,5 +51,5 @@
   </div>
 
 </div>
-</body>
+</main>
 

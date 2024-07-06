@@ -4,18 +4,22 @@ import {FormsModule} from "@angular/forms";
 import {CommonModule} from "@angular/common";
 import {Subject} from 'rxjs';
 import {debounceTime, distinctUntilChanged, switchMap} from 'rxjs/operators';
+import {Router} from "@angular/router";
+import {NavigationBarComponent} from "../parent-student/navigation-bar/navigation-bar.component";
+import {TeacherNavigationBarComponent} from "../teacher/teacher-navigation-bar/teacher-navigation-bar.component";
 
 
 @Component({
   selector: 'app-chat',
   standalone: true,
-  imports: [FormsModule, CommonModule],
+  imports: [FormsModule, CommonModule, NavigationBarComponent, TeacherNavigationBarComponent],
   templateUrl: './chat.component.html',
   styleUrl: './chat.component.css'
 })
 
 export class ChatComponent implements OnInit {
-
+  constructor(private router: Router) {
+  }
 
   userDataJson: string | null = localStorage.getItem('user');
   userData: any;
@@ -100,6 +104,11 @@ export class ChatComponent implements OnInit {
         error: (error: any) => console.log('Error Message: ', error)
       });
     }
+  }
+
+  checkIfUrlContainsTeacher(): boolean {
+    const currentUrl = this.router.url;
+    return currentUrl.includes('teacher');
   }
 
 
