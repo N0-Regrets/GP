@@ -4,6 +4,7 @@ import {ActivatedRoute} from "@angular/router";
 import {FormsModule} from "@angular/forms";
 import {NgForOf} from "@angular/common";
 import {MAT_DIALOG_DATA} from "@angular/material/dialog";
+import {response} from "express";
 
 @Component({
   selector: 'app-teacher-upload-materials',
@@ -38,10 +39,9 @@ export class TeacherUploadMaterialsComponent {
   onSubmit() {
     const formData = new FormData();
 
-
-    formData.append('Levelid', this.data.levelId);
     formData.append('SubjectId', this.data.subjectId);
     formData.append('TeacherId', this.data.teacherId);
+    formData.append('Levelid', this.data.levelId);
     formData.append('MaterialClass', this.currentClassId);
     formData.append('material', this.selectedFile as File);
     formData.forEach((value, key) => {
@@ -49,7 +49,10 @@ export class TeacherUploadMaterialsComponent {
     });
 
     this.data.materialType = +this.data.materialType;
-    this.http.post('http://ourschool.somee.com/api/Material/uploadMaterial2/'
-      + this.data.materialType, {formData}).subscribe();
+    this.http.post('http://ourschool.somee.com/api/Material/uploadMaterial2/' +
+      this.data.materialType, formData).subscribe(() => {
+      console.log("hello")
+      window.location.reload();
+    });
   }
 }
