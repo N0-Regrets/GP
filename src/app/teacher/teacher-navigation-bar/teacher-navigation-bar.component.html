@@ -15,7 +15,7 @@
       <li><a href="teacher/announcements/{{teacherId}}"
              [class.active]="isActive('/teacher/announcements/'+teacherId)">Announcements</a></li>
     </ul>
-    <a href="#">
+    <a href="#" (click)="authenticationService.signOut()">
       <img class="icon" src="../../../assets/images/user-icon.png">
     </a>
     <a href="teacher/chat/{{teacherId}}">

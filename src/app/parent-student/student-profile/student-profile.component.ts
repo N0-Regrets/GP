@@ -32,8 +32,7 @@ export class StudentProfileComponent implements OnInit {
     this.http.get('http://ourschool.somee.com/api/Student/GetStudentById/' + this.studentId).subscribe(
       (response: any) => {
         console.log(response);
-        // if((response.gender.toLowerCase())=="m"){response.gender="Male";}
-        // else{response.gender="Female";}
+
         this.student = response;
       }
     );

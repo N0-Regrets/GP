@@ -18,7 +18,9 @@
         <input type="date" id="birthDay" required name="birthDay" [(ngModel)]="teacherToBeAdded.birthDay">
       </div>
       <div class="form-group">
-        <input type="text" placeholder="Email" required [(ngModel)]="teacherToBeAdded.email" name="Eamil">
+        <input type="text" id="nationality" placeholder="Nationality" required
+               [(ngModel)]="teacherToBeAdded.nationality"
+               name="nationality">
       </div>
       <div class="form-group">
         <select id="religion" required name="religion" [(ngModel)]="teacherToBeAdded.religion">
@@ -30,12 +32,8 @@
 
     </div>
     <div class="form-row">
-      <div class="form-group">
-        <input type="text" id="nationality" placeholder="Nationality" required
-               [(ngModel)]="teacherToBeAdded.nationality"
-               name="nationality">
-      </div>
-      <div class="form-group">
+
+    <div class="form-group">
         <input type="text" id="degree" placeholder="Degree" required [(ngModel)]="teacherToBeAdded.degree"
                name="degree">
       </div>

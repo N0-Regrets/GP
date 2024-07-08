@@ -22,8 +22,9 @@ export class AdminAddAnnouncementComponent {
   forWhich: number = -1;
 
   onPost(form: any) {
-
-
+    console.log(form.value.title)
+    console.log(form.value.message)
+    console.log(this.forWhich)
     this.http.post('http://ourschool.somee.com/api/SchoolPostAnnouncement',
       {
         title: form.value.title,
@@ -31,12 +32,14 @@ export class AdminAddAnnouncementComponent {
         forWhich: this.forWhich
 
       }).subscribe(
-      () => {
+      (response) => {
+        console.log(response);
         window.location.reload();
-      },
-      error => {
-        window.alert("Something went wrong please try again");
       }
+      // },
+      // () => {
+      //   window.alert("Something went wrong please try again");
+      // }
     );
 
   }

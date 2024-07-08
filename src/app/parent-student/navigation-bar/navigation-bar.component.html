@@ -16,6 +16,9 @@
       <li *ngIf="parentId!='x'"><a href="reports/{{parentId}}/{{studentId}}"
                                    [class.active]="isActive('/reports/'+parentId+'/'+studentId)">Reports</a>
       </li>
+      <!--      <li *ngIf="parentId!='x'"><a href="reports/{{parentId}}/{{studentId}}"-->
+      <!--                                   [class.active]="isActive('/reports/'+parentId+'/'+studentId)">Materials</a>-->
+      <!--      </li>-->
 
     </ul>
     <a href="#" (click)="authenticationService.signOut()">

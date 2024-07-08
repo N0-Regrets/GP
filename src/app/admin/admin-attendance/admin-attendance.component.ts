@@ -29,15 +29,16 @@ export class AdminAttendanceComponent implements OnInit {
     this.getAttendanceInfo();
   }
 
-  students: StudentModel[] = this.studentService.getAllStudents();
-  filteredStudents: StudentModel[] = this.students;
+  students: any = this.studentService.getAllStudents();
+  filteredStudents: any = this.students;
   attendanceInfo: any = [];
   searchInput: string = "";
 
 
   getAttendanceInfo() {
+
     for (let student of this.students) {
-      this.http.get('http://ourschool.somee.com/api/Attendance/GetStudenceAttendanceReport/' + student.name).subscribe(
+      this.http.get('http://ourschool.somee.com/api/Attendance/GetStudenceAttendanceReport/' + student.id).subscribe(
         (response: any) => {
           this.attendanceInfo.push(response);
         }
