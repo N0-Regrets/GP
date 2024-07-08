@@ -37,7 +37,7 @@ export class AdminAnnouncementsComponent implements OnInit {
   getAnnouncements(): void {
     this.http.get("http://ourschool.somee.com/GetAllAnnouncements").subscribe(
       (response: any) => {
-        this.announcements = response;
+        this.announcements = [...response].reverse();
         console.log(this.announcements);
       }
     );

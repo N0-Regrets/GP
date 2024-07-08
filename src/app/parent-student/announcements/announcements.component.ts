@@ -45,7 +45,7 @@ export class AnnouncementsComponent implements OnInit {
       params: {id: this.studentId}
     }).subscribe(
       (response: any) => {
-        this.childAnnouncements = response;
+        this.childAnnouncements = [...response].reverse();
       }
     );
   }
@@ -53,7 +53,7 @@ export class AnnouncementsComponent implements OnInit {
   getParentAnnouncements(): void {
     this.http.get('http://ourschool.somee.com/api/GetParentssAnnouncements').subscribe(
       (response: any) => {
-        this.parentAnnouncements = response;
+        this.parentAnnouncements = [...response].reverse();
       }
     );
   }

@@ -18,6 +18,8 @@ export class NavigationBarComponent {
 
   parentId = this.route.snapshot.params["parent-id"];
   studentId = this.route.snapshot.params["student-id"];
+  subjectId = this.route.snapshot.params["subject-id"];
+  materialId = this.route.snapshot.params["material-id"];
   currentUrl: string = "";
 
   constructor(private router: Router, protected authenticationService: AuthenticationService, private route: ActivatedRoute) {

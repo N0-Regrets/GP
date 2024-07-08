@@ -3,20 +3,19 @@
   <form (ngSubmit)="onPost(announcementForm)" #announcementForm="ngForm">
     <input placeholder="Title" required name="title" ngModel>
 
-    <select required name="class" ngModel>
-      <option selected disabled value="-1">Class</option>
-      <option *ngFor="let class of classes" [value]=class.classId>
-        Class {{ class.classNumber }}
-      </option>
-    </select>
-
-    <select required name="subject" ngModel>
-      <option selected disabled>Subject</option>
-      <option *ngFor="let subject of subjects" [value]=subject.subject.name>
+    <select required name="subject" [(ngModel)]="currentSubjectIndex" (change)="getClasses()">
+      <option selected disabled value="-1">Subject</option>
+      <option *ngFor="let subject of subjects;index as i " [value]=i>
         {{ subject.subject.name }}
       </option>
     </select>
 
+    <select required name="class" [(ngModel)]="currentClassId">
+      <option selected disabled value="-1">Class</option>
+      <option *ngFor="let class of classes" [value]=class.id>
+        Class {{ class.number }}
+      </option>
+    </select>
     <textarea ngModel name="message" placeholder="Write Your Announcement Here..."></textarea>
     <button>Post</button>
   </form>

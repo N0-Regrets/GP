@@ -8,7 +8,6 @@ import {AdminParentsComponent} from "./admin/admin-parents/admin-parents.compone
 import {AdminClassesComponent} from "./admin/admin-classes/admin-classes.component";
 import {AdminAssignTeachersComponent} from "./admin/admin-assign-teachers/admin-assign-teachers.component";
 import {TeacherSubjectsComponent} from "./teacher/teacher-subjects/teacher-subjects.component";
-import {TeacherMaterialsComponent} from './teacher/teacher-materials/teacher-materials.component';
 import {TeacherMaterialsListComponent} from "./teacher/teacher-materials-list/teacher-materials-list.component";
 import {AdminAttendanceComponent} from "./admin/admin-attendance/admin-attendance.component";
 import {TeacherClassesComponent} from "./teacher/teacher-classes/teacher-classes.component";
@@ -29,6 +28,8 @@ import {ReportsComponent} from "./parent-student/subjects/reports/reports.compon
 import {AuthenticationGuardService} from "./services/authentication-guard.service";
 import {TeacherProfileComponent} from "./teacher/teacher-profile/teacher-profile.component";
 import {ChatComponent} from "./chat/chat.component";
+import {MaterialsTypesComponent} from "./materials-types/materials-types.component";
+import {MaterialsComponent} from "./parent-student/materials/materials.component";
 
 export const routes: Routes = [
 
@@ -43,6 +44,13 @@ export const routes: Routes = [
   {path: 'subjects/:parent-id/:student-id', component: SubjectsComponent, title: "Subjects"},
   {path: 'children/:parent-id', component: ChildrenComponent, title: "Children"},
   {path: 'chat/:parent-id/:student-id', component: ChatComponent, title: "Chat"},
+  {path: 'materials/:parent-id/:student-id', component: SubjectsComponent, title: "Materials"},
+  {path: 'materials/:parent-id/:student-id/:subject-id', component: MaterialsTypesComponent, title: "Materials"},
+  {
+    path: 'materials/:parent-id/:student-id/:subject-id/:material-id',
+    component: MaterialsComponent,
+    title: "Materials"
+  },
 
   //Authentication
   {path: '', component: AuthenticationComponent, title: "Sign in", canActivate: [AuthenticationGuardService]},
@@ -65,7 +73,7 @@ export const routes: Routes = [
   {path: 'teacher/profile/:teacher-id', component: TeacherProfileComponent, title: "Profile"},
   {
     path: 'teacher/materials/:teacher-id/:subject-id/:level-id',
-    component: TeacherMaterialsComponent,
+    component: MaterialsTypesComponent,
     title: "Materials"
   },
   {

@@ -37,7 +37,7 @@ export class TeacherAnnouncementsComponent {
   getAnnouncements(): void {
     this.http.get('http://ourschool.somee.com/api/GetTeachersAnnouncements').subscribe(
       (response: any) => {
-        this.announcements = response;
+        this.announcements = [...response].reverse();
         console.log(this.announcements);
       }
     );

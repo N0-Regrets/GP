@@ -1,10 +1,9 @@
 import {Component, OnInit} from '@angular/core';
-import {NgForOf} from "@angular/common";
+import {NgForOf, NgIf} from "@angular/common";
 import {NavigationBarComponent} from "../navigation-bar/navigation-bar.component";
 import {HttpClient} from "@angular/common/http";
 import {ActivatedRoute, Router} from "@angular/router";
 import {MatDialog} from "@angular/material/dialog";
-import {ReportsComponent} from "./reports/reports.component";
 import {ChatbotComponent} from "../../chatbot/chatbot.component";
 
 @Component({
@@ -13,7 +12,8 @@ import {ChatbotComponent} from "../../chatbot/chatbot.component";
   imports: [
     NgForOf,
     NavigationBarComponent,
-    ChatbotComponent
+    ChatbotComponent,
+    NgIf
   ],
   templateUrl: './subjects.component.html',
   styleUrl: './subjects.component.css'
@@ -41,10 +41,13 @@ export class SubjectsComponent implements OnInit {
     );
   }
 
-
-  protected readonly onclick = onclick;
-
   onClick(subjectId: number) {
-    this.router.navigate(['/report/' + this.parentId + '/' + this.studentId + '/' + subjectId]);
+    if (this.parentId != 'x') {
+      this.router.navigate(['/report/' + this.parentId + '/' + this.studentId + '/' + subjectId]);
+    } else {
+      this.router.navigate(['/materials/' + this.parentId + '/' + this.studentId + '/' + subjectId]);
+
+    }
+
   }
 }

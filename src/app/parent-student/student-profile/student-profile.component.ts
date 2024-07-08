@@ -29,7 +29,7 @@ export class StudentProfileComponent implements OnInit {
 
   getStudent() {
 
-    this.http.get('http://ourschool.somee.com/api/Student/GetStudentById/' + this.studentId).subscribe(
+    this.http.get('http://ourschool.somee.com/api/Student/GetStudentProfile/' + this.studentId).subscribe(
       (response: any) => {
         console.log(response);
 
